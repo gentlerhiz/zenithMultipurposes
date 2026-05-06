@@ -44,7 +44,7 @@ export default function ShowcaseSection() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, []);
 
   const prev = () => {
@@ -113,7 +113,7 @@ export default function ShowcaseSection() {
           </motion.div>
 
           {/* Right — image slider with Framer Motion transitions */}
-          <motion.div variants={fadeRight} className="relative w-full overflow-hidden rounded-[24px]" style={{ aspectRatio: "1 / 1" }}>
+          <motion.div variants={fadeRight} className="relative w-full overflow-hidden rounded-3xl" style={{ aspectRatio: "1 / 1" }}>
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
                 key={current}
