@@ -54,6 +54,8 @@ const columns = [
   ],
 ];
 
+const slideEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 function Slider({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -89,8 +91,8 @@ function Slider({ images }: { images: string[] }) {
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
-    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }),
+    center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: slideEase } },
+    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: slideEase } }),
   };
 
   return (
