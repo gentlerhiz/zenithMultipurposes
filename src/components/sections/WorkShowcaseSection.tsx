@@ -5,53 +5,25 @@ import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 
-const columns = [
-  // Column 1 — Branding & Identity
-  [
-    "/portfolio/IBRAHIM01.jpg",
-    "/portfolio/IBRAHIM02.jpg",
-    "/portfolio/IBRAHIM03.jpg",
-    "/portfolio/1.jpg",
-    "/portfolio/2.jpg",
-    "/portfolio/3.jpg",
-    "/portfolio/4.jpg",
-    "/portfolio/COLOUR.jpg",
-    "/portfolio/E.jpg",
-    "/portfolio/N.jpg",
-    "/portfolio/S.jpg",
-    "/portfolio/SMPP.jpg",
-  ],
-  // Column 2 — Graphics & Design
-  [
-    "/portfolio/Fries by Koks.jpg",
-    "/portfolio/Fries by Koks 1.jpg",
-    "/portfolio/Fries by Koks 2.jpg",
-    "/portfolio/Fries by Koks 3.jpg",
-    "/portfolio/Fries by Koks 4.jpg",
-    "/portfolio/Fries by Koks AI-03.jpg",
-    "/portfolio/Fries by Koks2.jpg",
-    "/portfolio/Fries by Koks3.jpg",
-    "/portfolio/CHRISTMAS.jpg",
-    "/portfolio/welcome to february.jpg",
-    "/portfolio/welcome2.jpg",
-    "/portfolio/From The Haves.jpg",
-  ],
-  // Column 3 — Social Media & Print
-  [
-    "/portfolio/STRATEGY PLAN.jpg",
-    "/portfolio/STRATEGY PLAN 1.jpg",
-    "/portfolio/Randshelp Banner Design.jpg",
-    "/portfolio/Randshelp Banner Design 02.jpg",
-    "/portfolio/TBSPINE.jpg",
-    "/portfolio/Middle Info.jpg",
-    "/portfolio/Mission&Vision.jpg",
-    "/portfolio/Degree in Canada.jpg",
-    "/portfolio/Ireland Famous Schools - Title Page.jpg",
-    "/portfolio/Ireland Famous Schools - Page1.jpg",
-    "/portfolio/Ireland Famous Schools - Page2.jpg",
-    "/portfolio/Ireland Famous Schools - Page3.jpg",
-    "/portfolio/Ireland Famous Schools - Page4.jpg",
-  ],
+const buildImages = (folder: string, files: string[]) => files.map((file) => encodeURI(`/${folder}/${file}`));
+
+const showcaseCards = [
+  {
+    title: "Branding",
+    description: "Identity-led visuals pulled from our branding and product design work.",
+    images: buildImages("Branding", ["b10.jpeg", "b14.jpeg", "b15.jpeg", "b16.jpeg", "b17.jpeg", "tr2.jpeg", "tr3.jpeg"]),
+  },
+  {
+    title: "Social Media Management",
+    description: "Campaign visuals and content graphics from social-first client work.",
+    images: buildImages("Shopify Drinks and More", ["s1.jpeg", "s2.jpeg", "s3.jpeg", "s4.jpeg"])
+      .concat(buildImages("Eminent Autos", ["em7.jpeg", "em8.jpeg", "em9.jpeg"])),
+  },
+  {
+    title: "Logo",
+    description: "A focused look at logo directions and mark development explorations.",
+    images: buildImages("Logos", ["l1.jpeg", "l2.jpeg", "l3.jpeg", "l4.jpeg", "l5.jpeg"]),
+  },
 ];
 
 const slideEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -96,7 +68,7 @@ function Slider({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-[20px]" style={{ aspectRatio: "1 / 1" }}>
+    <div className="relative aspect-square w-full overflow-hidden">
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
           key={current}
@@ -121,7 +93,7 @@ function Slider({ images }: { images: string[] }) {
       <button
         onClick={prev}
         aria-label="Previous image"
-        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition hover:bg-black/60"
+        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center bg-black/40 text-white backdrop-blur-sm transition hover:bg-black/60"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
@@ -131,7 +103,7 @@ function Slider({ images }: { images: string[] }) {
       <button
         onClick={next}
         aria-label="Next image"
-        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition hover:bg-black/60"
+        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center bg-black/40 text-white backdrop-blur-sm transition hover:bg-black/60"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6" />
@@ -144,8 +116,8 @@ function Slider({ images }: { images: string[] }) {
             key={i}
             onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); resetTimer(); }}
             aria-label={`Go to image ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? "w-5 bg-[#fbbf24]" : "w-1.5 bg-white/50"
+            className={`h-1.5 transition-all duration-300 ${
+              i === current ? "w-5 bg-neon-green" : "w-1.5 bg-white/50"
             }`}
           />
         ))}
@@ -159,7 +131,7 @@ export default function WorkShowcaseSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#f6f5f1] py-16 md:py-20">
+    <section id="gallery" ref={ref} className="bg-off-white py-16 md:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Header */}
         <motion.div
@@ -168,15 +140,14 @@ export default function WorkShowcaseSection() {
           animate={inView ? "show" : "hidden"}
           className="mb-10 text-center"
         >
-          <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-[#1f3f16]">
-            Our Work
+          <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
+            Gallery Preview
           </motion.p>
-          <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-bold text-[#141414] md:text-4xl">
-            Results that speak for themselves
+          <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">
+            A selection of work across branding, social media, and logos.
           </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#575757]">
-            A glimpse into the brands we&apos;ve built, the graphics we&apos;ve
-            crafted, and the digital presences we&apos;ve elevated.
+          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#6B7280]">
+            Take a look at some of the projects and designs we have delivered.
           </motion.p>
         </motion.div>
 
@@ -187,9 +158,16 @@ export default function WorkShowcaseSection() {
           animate={inView ? "show" : "hidden"}
           className="grid gap-5 sm:grid-cols-3"
         >
-          {columns.map((images, i) => (
-            <motion.div key={i} variants={staggerItem}>
-              <Slider images={images} />
+          {showcaseCards.map((card, i) => (
+            <motion.div key={card.title} variants={staggerItem} className="flex flex-col gap-4">
+              <div className="border border-black/10 bg-white p-5 shadow-[0_12px_30px_rgba(15,36,25,0.06)]">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-dark-green">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 text-xl font-bold text-text-primary">{card.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-[#6B7280]">{card.description}</p>
+              </div>
+              <Slider images={card.images} />
             </motion.div>
           ))}
         </motion.div>

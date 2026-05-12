@@ -72,7 +72,7 @@ export default function ShowcaseSection() {
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid gap-10 rounded-[28px] border border-black/8 bg-white p-8 shadow-[0_18px_45px_rgba(17,17,17,0.07)] md:grid-cols-[1.1fr_0.9fr] md:p-12"
+          className="grid gap-10 border border-black/8 bg-white p-8 shadow-[0_18px_45px_rgba(17,17,17,0.07)] md:grid-cols-[1.1fr_0.9fr] md:p-12"
         >
           {/* Left — text + bullets */}
           <motion.div variants={fadeLeft}>
@@ -93,7 +93,7 @@ export default function ShowcaseSection() {
                 <motion.div
                   key={i}
                   variants={staggerItem}
-                  className="rounded-2xl border border-black/8 bg-[#f6f5f1] px-5 py-4"
+                  className="border border-black/8 bg-[#f6f5f1] px-5 py-4"
                 >
                   {item.accent && (
                     <span className="text-[#1f3f16]">{item.accent}</span>
@@ -106,14 +106,14 @@ export default function ShowcaseSection() {
             <motion.a
               variants={fadeUp}
               href="#services"
-              className="mt-8 inline-flex rounded-full bg-[#1f3f16] px-7 py-3 text-xs font-bold uppercase tracking-[0.3em] text-white transition hover:bg-[#142c10]"
+              className="mt-8 inline-flex bg-[#1f3f16] px-7 py-3 text-xs font-bold uppercase tracking-[0.3em] text-white transition hover:bg-[#142c10]"
             >
               Learn More about Us
             </motion.a>
           </motion.div>
 
           {/* Right — image slider with Framer Motion transitions */}
-          <motion.div variants={fadeRight} className="relative w-full overflow-hidden rounded-3xl" style={{ aspectRatio: "1 / 1" }}>
+          <motion.div variants={fadeRight} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
                 key={current}

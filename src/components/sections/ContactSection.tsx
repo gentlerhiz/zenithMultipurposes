@@ -9,13 +9,13 @@ export default function ContactSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" ref={ref} className="bg-[#f6f5f1] py-16 md:py-20">
+    <section id="contact" ref={ref} className="bg-[#FAFAFA] py-16 md:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="rounded-[28px] bg-[#1f3f16] p-8 md:p-14"
+          className="bg-[#0F2419] p-8 md:p-14"
         >
           <motion.div
             variants={staggerContainer}
@@ -24,21 +24,21 @@ export default function ContactSection() {
             className="grid gap-10 md:grid-cols-2 md:items-center"
           >
             <motion.div variants={fadeLeft}>
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#fbbf24]">
-                Want to say something?
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#CDFF00]">
+                Contact Call to Action
               </p>
               <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-                Why not reach out to us today?
+                Ready to build your brand or business presence?
               </h2>
-              <p className="mt-4 text-base leading-7 text-white/65">
-                We&apos;re here to help you get more traffic, leads, sales, and
-                customers online. Let&apos;s talk about your business.
+              <p className="mt-4 text-base leading-7 text-white/70">
+                Contact Zenith Multipurposes today for website design, branding,
+                social media setup, graphics design, or AI automation support.
               </p>
             </motion.div>
 
             <motion.div variants={staggerContainer} className="grid gap-5">
-              <motion.div variants={staggerItem} className="rounded-2xl bg-white/10 p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#fbbf24]">
+              <motion.div variants={staggerItem} className="bg-white/10 p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CDFF00]">
                   Address
                 </p>
                 <p className="mt-2 text-sm text-white/80">
@@ -46,16 +46,16 @@ export default function ContactSection() {
                 </p>
               </motion.div>
               <motion.div variants={staggerContainer} className="grid grid-cols-2 gap-5">
-                <motion.div variants={staggerItem} className="rounded-2xl bg-white/10 p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#fbbf24]">
+                <motion.div variants={staggerItem} className="bg-white/10 p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CDFF00]">
                     Email
                   </p>
                   <p className="mt-2 text-sm text-white/80">
                     Dzmultipurposes@gmail.com
                   </p>
                 </motion.div>
-                <motion.div variants={staggerItem} className="rounded-2xl bg-white/10 p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#fbbf24]">
+                <motion.div variants={staggerItem} className="bg-white/10 p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CDFF00]">
                     Phone
                   </p>
                   <p className="mt-2 text-sm text-white/80">
@@ -66,9 +66,9 @@ export default function ContactSection() {
               <motion.a
                 variants={fadeRight}
                 href="mailto:Dzmultipurposes@gmail.com"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[#fbbf24] py-3 text-xs font-bold uppercase tracking-[0.3em] text-[#142c10] transition hover:bg-[#d97706]"
+                className="inline-flex w-full items-center justify-center bg-[#CDFF00] py-3 text-xs font-bold uppercase tracking-[0.3em] text-[#0F2419] transition hover:bg-[#B8E600]"
               >
-                Send us a message
+                Contact Us
               </motion.a>
             </motion.div>
           </motion.div>

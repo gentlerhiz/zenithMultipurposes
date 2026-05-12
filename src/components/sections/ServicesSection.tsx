@@ -1,117 +1,236 @@
 "use client";
 
-import { Globe, BarChart2, Award, Palette, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Globe, BarChart2, Award, Palette, Bot, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import Link from "next/link";
 import { fadeUp, fadeLeft, staggerContainer, staggerItem } from "@/lib/motion";
 
 const services = [
   {
-    title: "Website Building & Deployment",
+    title: "Website Design and Setup",
     description:
-      "A sleek, responsive website that delivers credibility, clarity, and a great first impression.",
-    cta: "Learn More",
-    href: "#contact",
+      "Professional websites built to help businesses stand out and attract inquiries.",
+    cta: "View Details",
+    href: "/services/website-design",
     Icon: Globe,
   },
   {
-    title: "Social Media Management",
+    title: "Business and Corporate Branding",
     description:
-      "Consistent, engaging content that grows your audience and keeps your brand top of mind.",
-    cta: "Learn More",
-    href: "#contact",
-    Icon: BarChart2,
-  },
-  {
-    title: "Branding",
-    description:
-      "A distinct identity that speaks to your audience and sets you apart from the competition.",
-    cta: "Learn More",
-    href: "#contact",
+      "Company profiles, catalogues, branding, and rebranding solutions for a stronger image.",
+    cta: "View Details",
+    href: "/services/branding",
     Icon: Award,
   },
   {
-    title: "Graphics Designing",
+    title: "Social Media Management and Setup",
     description:
-      "Professional graphics that elevate your marketing, campaigns, and overall visual presence.",
-    cta: "Learn More",
-    href: "#contact",
+      "Professional setup and branding support for social platforms.",
+    cta: "View Details",
+    href: "/services/social-media",
+    Icon: BarChart2,
+  },
+  {
+    title: "Bulk Graphics Design",
+    description:
+      "Banners, posters, corporate graphics, wedding invites, meeting materials, and print ready designs.",
+    cta: "View Details",
+    href: "/services/bulk-graphics",
     Icon: Palette,
+  },
+  {
+    title: "AI Automation Setup",
+    description:
+      "Smart systems that simplify communication, tasks, and business processes.",
+    cta: "View Details",
+    href: "/services/ai-automation",
+    Icon: Bot,
   },
 ];
 
+const loopedServices = [...services, ...services];
+
 export default function ServicesSection() {
   const ref = useRef(null);
+  const railRef = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const autoScrollTimer = useRef<number | null>(null);
+
+  const getScrollStep = () => {
+    const rail = railRef.current;
+    if (!rail) return 0;
+
+    const cards = rail.querySelectorAll<HTMLElement>("[data-service-card]");
+    if (cards.length > 1) {
+      return cards[1].offsetLeft - cards[0].offsetLeft;
+    }
+
+    return cards[0]?.offsetWidth ?? rail.clientWidth * 0.6;
+  };
+
+  const scrollRail = (direction: "left" | "right") => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const loopWidth = rail.scrollWidth / 2;
+    const amount = getScrollStep();
+    rail.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+
+    window.setTimeout(() => {
+      if (rail.scrollLeft >= loopWidth) {
+        rail.scrollLeft -= loopWidth;
+      } else if (rail.scrollLeft < 0) {
+        rail.scrollLeft += loopWidth;
+      }
+    }, 320);
+  };
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail || !inView) return;
+
+    autoScrollTimer.current = window.setInterval(() => {
+      const loopWidth = rail.scrollWidth / 2;
+
+      const step = getScrollStep();
+
+      rail.scrollBy({
+        left: step,
+        behavior: "smooth",
+      });
+
+      window.setTimeout(() => {
+        if (rail.scrollLeft >= loopWidth) {
+          rail.scrollLeft -= loopWidth;
+        }
+      }, 320);
+    }, 4200);
+
+    return () => {
+      if (autoScrollTimer.current !== null) {
+        window.clearInterval(autoScrollTimer.current);
+        autoScrollTimer.current = null;
+      }
+    };
+  }, [inView]);
 
   return (
-    <section id="services" ref={ref} className="bg-[#f6f5f1] py-16 md:py-24">
+    <section id="services" ref={ref} className="bg-[#ffffff] py-16 md:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-
-        {/* Header */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start"
         >
-          <div>
-            <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-[#1f3f16]">
+          <motion.div variants={fadeUp} className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
               Our Services
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-bold text-[#141414] md:text-4xl">
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">
               Everything you need to show up strong
-            </motion.h2>
-          </div>
-          <motion.p variants={fadeLeft} className="max-w-sm text-sm leading-7 text-[#888]">
-            Practical, visual, and strategic services that keep your business
-            visible and trusted.
-          </motion.p>
+            </h2>
+          </motion.div>
+
+          <motion.div variants={fadeLeft} className="flex items-center gap-4 self-start">
+            <button
+              type="button"
+              onClick={() => scrollRail("left")}
+              aria-label="Scroll services left"
+              className="flex h-14 w-14 items-center justify-center bg-dark-green text-neon-green transition-transform duration-300 hover:scale-105 md:h-16 md:w-16"
+            >
+              <ArrowRight className="h-5 w-5 rotate-180 md:h-6 md:w-6" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollRail("right")}
+              aria-label="Scroll services right"
+              className="flex h-14 w-14 items-center justify-center bg-neon-green text-dark-green shadow-[0_14px_36px_rgba(17,17,17,0.06)] transition-transform duration-300 hover:scale-105 md:h-16 md:w-16"
+            >
+              <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+          </motion.div>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          ref={railRef}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-0 [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar-thumb]:bg-transparent [&::-webkit-scrollbar-track]:bg-transparent"
         >
-          {services.map((service) => (
+          {loopedServices.map((service, index) => {
+            const serviceIndex = index % services.length;
+
+            return (
             <motion.div
-              key={service.title}
+              key={`${service.title}-${index}`}
               variants={staggerItem}
-              className="group flex flex-col rounded-2xl border border-black/[0.07] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              data-service-card
+              className={`group flex min-h-80 w-70 shrink-0 snap-start flex-col border border-black/5 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] transition-all duration-300 md:w-77.5 ${
+                serviceIndex === 0
+                  ? "bg-[#F6F2D9]"
+                  : serviceIndex === 1
+                    ? "bg-[#EDF5E9]"
+                    : serviceIndex === 2
+                      ? "bg-[#F4EEF6]"
+                      : serviceIndex === 3
+                        ? "bg-[#EEF2F7]"
+                        : "bg-[#F5F0EA]"
+              }`}
             >
-              {/* Icon */}
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#f0f4ee]">
+              <div className={`inline-flex h-12 w-12 items-center justify-center shadow-[0_10px_24px_rgba(17,17,17,0.04)] md:h-14 md:w-14 ${
+                serviceIndex === 0
+                  ? "bg-neon-green/20"
+                  : serviceIndex === 1
+                    ? "bg-dark-green/12"
+                    : serviceIndex === 2
+                      ? "bg-neon-green/14"
+                      : serviceIndex === 3
+                        ? "bg-dark-green/10"
+                        : "bg-neon-green/12"
+              }`}>
                 <service.Icon
-                  size={24}
-                  strokeWidth={1.5}
-                  className="text-[#1f3f16]"
+                  size={22}
+                  strokeWidth={1.8}
+                  className={
+                    serviceIndex === 0
+                      ? "text-[#8A6E00]"
+                      : serviceIndex === 1
+                        ? "text-[#50753F]"
+                        : serviceIndex === 2
+                          ? "text-[#7A4E73]"
+                          : serviceIndex === 3
+                            ? "text-[#4F6C91]"
+                            : "text-[#8B6A4D]"
+                  }
                 />
               </div>
 
-              {/* Title */}
-              <h3 className="mt-5 text-sm font-bold leading-snug text-[#141414]">
+              <h3 className="mt-8 max-w-55 text-[22px] font-semibold leading-[1.05] tracking-[-0.04em] text-[#0B0B0B] md:text-[24px]">
                 {service.title}
               </h3>
 
-              {/* Description */}
-              <p className="mt-3 flex-1 text-sm leading-6 text-[#888]">
+              <p className="mt-6 max-w-55 text-sm leading-6 text-[#1F1F1F]">
                 {service.description}
               </p>
 
-              {/* CTA */}
-              <a
+              <Link
                 href={service.href}
-                className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#1f3f16] transition-all duration-200 hover:gap-2.5"
+                className="mt-auto inline-flex items-center gap-2 text-sm font-medium tracking-[-0.01em] text-[#111111] transition-transform duration-200 hover:gap-3"
               >
                 {service.cta}
-                <ArrowRight size={12} />
-              </a>
+                <ArrowRight size={16} />
+              </Link>
             </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

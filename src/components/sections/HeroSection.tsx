@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "@/lib/motion";
 
@@ -13,25 +14,25 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#0e1f0b] text-white">
+    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#0F2419] text-white">
       {/* Background image */}
       <Image
         src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
         alt="Hero background"
         fill
-        className="object-cover opacity-30"
+        className="object-cover opacity-25"
         priority
         sizes="100vw"
       />
 
       {/* Gradient — dark at top for navbar legibility, rich green in middle, fades to near-black at bottom */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,31,11,0.85)_0%,rgba(20,44,16,0.6)_45%,rgba(10,22,8,0.95)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,36,25,0.90)_0%,rgba(26,58,46,0.70)_45%,rgba(15,36,25,0.95)_100%)]" />
 
       {/* Subtle noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.03] [background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')]" />
 
       {/* Main content — vertically centered */}
-      <div className="relative flex flex-1 flex-col items-center justify-center px-6 pb-32 pt-32 md:px-10">
+      <div className="relative flex flex-1 flex-col items-center justify-center px-6 pb-32 pt-24 md:px-10 md:pt-28">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -39,8 +40,8 @@ export default function HeroSection() {
           className="mx-auto max-w-4xl text-center"
         >
           {/* Eyebrow */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#fbbf24]" />
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 border border-white/15 bg-white/8 px-4 py-1.5 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 bg-[#CDFF00]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70">
               Your Brand · Our Creativity · Your Success
             </span>
@@ -51,34 +52,36 @@ export default function HeroSection() {
             variants={fadeUp}
             className="mt-7 text-5xl font-bold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl"
           >
-            We Build Brands
-            <br />
-            <span className="text-[#fbbf24]">That Stand Out.</span>
+            Build a stronger business presence with 
+            
+            <span className="text-[#CDFF00]"> design, branding, and smart automation.</span>
           </motion.h1>
 
           {/* Sub-headline */}
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/55"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/65"
           >
-            A creative studio for businesses ready to look sharp, sound
-            confident, and dominate online. From branding to web — we do it all.
+            Zenith Multipurposes helps businesses look professional, attract more
+            customers, and operate more efficiently through website design,
+            business branding, social media setup, bulk graphics design, and AI
+            automation.
           </motion.p>
 
           {/* CTAs */}
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#contact"
-              className="rounded-full bg-[#fbbf24] px-8 py-3.5 text-sm font-semibold text-[#0e1f0b] transition-all duration-200 hover:bg-[#f0b020] hover:-translate-y-0.5"
+            <Link
+              href="/services"
+              className="bg-[#CDFF00] px-8 py-3.5 text-sm font-semibold text-[#0F2419] transition-all duration-200 hover:bg-[#B8E600] hover:-translate-y-0.5"
             >
-              Start a Project
-            </a>
-            <a
-              href="#showcase"
-              className="rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/40 hover:bg-white/10"
+              Get a Quote
+            </Link>
+            <Link
+              href="/services"
+              className="border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-[#CDFF00] hover:bg-[#CDFF00]/10 hover:text-[#CDFF00]"
             >
-              See Our Work
-            </a>
+              View Services
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -93,7 +96,7 @@ export default function HeroSection() {
         <div className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-x divide-white/10 px-6 md:grid-cols-4 md:px-10">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center py-6 text-center">
-              <span className="text-2xl font-bold text-[#fbbf24] md:text-3xl">{stat.value}</span>
+              <span className="text-2xl font-bold text-[#CDFF00] md:text-3xl">{stat.value}</span>
               <span className="mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/45">
                 {stat.label}
               </span>
