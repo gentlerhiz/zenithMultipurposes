@@ -66,14 +66,12 @@ export default function WebsiteDesignPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
       <ServicePageLayout
-        iconName="globe"
         iconGradient="from-green-50 via-emerald-50 to-white"
         badge="Website Design & Building"
         title="Websites that build trust and drive inquiries."
         description="From landing pages to full corporate sites, we design clean, mobile friendly websites that represent your business well."
         heroImage="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=1200&q=80"
         heroImageAlt="Website design workspace"
-        heroCaption="Clean, responsive websites that showcase your business with clarity and confidence."
         deliverables={deliverables}
         highlights={highlights}
         pricing={pricing}

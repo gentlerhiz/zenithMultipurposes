@@ -96,14 +96,12 @@ export default function SocialMediaPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
       <ServicePageLayout
-        iconName="megaphone"
         iconGradient="from-blue-50 via-cyan-50 to-white"
         badge="Social Media Management"
         title="Consistent social presence across all platforms."
         description="We handle setup, branding, and content delivery so your business stays visible, credible, and organized online."
         heroImage="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80"
         heroImageAlt="Social media content planning"
-        heroCaption="Profile setup, branded visuals, and content delivery for IG, FB, TikTok, LinkedIn, X, and YouTube."
         deliverables={deliverables}
         highlights={highlights}
         pricing={pricing}

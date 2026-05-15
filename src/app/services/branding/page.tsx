@@ -108,14 +108,12 @@ export default function BrandingPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
       <ServicePageLayout
-        iconName="palette"
         iconGradient="from-purple-50 via-pink-50 to-white"
         badge="Branding & Rebranding"
-        title="Build a clear identity with strong, consistent brand assets."
-        description="From logos to full corporate identity systems, we help businesses present a professional, trustworthy image across every channel."
+        title="Your brand is the first thing people judge. Make sure it says the right thing."
+        description=""
         heroImage="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200&q=80"
         heroImageAlt="Branding materials"
-        heroCaption="Identity systems, company profiles, and catalogues that look executive and polished."
         deliverables={deliverables}
         highlights={highlights}
         pricing={pricing}

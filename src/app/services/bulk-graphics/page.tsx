@@ -87,14 +87,12 @@ export default function BulkGraphicsPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
       <ServicePageLayout
-        iconName="image"
         iconGradient="from-orange-50 via-red-50 to-white"
         badge="Bulk Graphics Design"
         title="Print ready designs for campaigns, events, and corporate needs."
         description="We design professional graphics that keep your business consistent across print and digital touchpoints."
         heroImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80"
         heroImageAlt="Designing print graphics"
-        heroCaption="Event packs, corporate posters, and seasonal design sets prepared for print."
         deliverables={deliverables}
         highlights={highlights}
         pricing={pricing}

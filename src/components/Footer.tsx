@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {
   return (
@@ -84,18 +86,24 @@ export default function Footer() {
               Contact
             </p>
             <div className="mt-4 grid gap-2 text-sm text-white/80">
-              <span>No 23, Akinyemi Street, Oluyole Estate, Oyo State</span>
-              <a 
-                href="mailto:Dzmultipurposes@gmail.com"
-                className="transition hover:text-[#CDFF00]"
-              >
+              <div className="flex items-center gap-2">
+                <FiMapPin className="h-4 w-4 text-white/80" />
+                <span>No 23, Akinyemi Street, Oluyole Estate, Oyo State</span>
+              </div>
+
+              <a href="mailto:Dzmultipurposes@gmail.com" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+                <FiMail className="h-4 w-4 text-white/80" />
                 Dzmultipurposes@gmail.com
               </a>
-              <a 
-                href="tel:+2348108529124"
-                className="transition hover:text-[#CDFF00]"
-              >
-                +234 8108529124
+
+              <a href="https://wa.me/2349037468616" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+                <FaWhatsapp className="h-4 w-4 text-white/80" />
+                +234 903 746 8616
+              </a>
+
+              <a href="tel:08108529124" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+                <FiPhone className="h-4 w-4 text-white/80" />
+                08108529124
               </a>
             </div>
           </div>

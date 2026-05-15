@@ -9,20 +9,19 @@ const buildImages = (folder: string, files: string[]) => files.map((file) => enc
 
 const showcaseCards = [
   {
-    title: "Branding",
-    description: "Identity-led visuals pulled from our branding and product design work.",
-    images: buildImages("Branding", ["b10.jpeg", "b14.jpeg", "b15.jpeg", "b16.jpeg", "b17.jpeg", "tr2.jpeg", "tr3.jpeg"]),
+    // title: "Branding",
+    // description: "Identity-led visuals pulled from our branding and product design work.",
+    images: buildImages("Homepage Images", ["1.jpg", "2.jpg", "3.jpg", "4.jpeg"]),
   },
   {
-    title: "Social Media Management",
-    description: "Campaign visuals and content graphics from social-first client work.",
-    images: buildImages("Shopify Drinks and More", ["s1.jpeg", "s2.jpeg", "s3.jpeg", "s4.jpeg"])
-      .concat(buildImages("Eminent Autos", ["em7.jpeg", "em8.jpeg", "em9.jpeg"])),
+    // title: "Social Media Management",
+    // description: "Campaign visuals and content graphics from social-first client work.",
+    images: buildImages("Homepage Images", ["7.jpeg", "8.jpeg", "9.jpeg"]),
   },
   {
-    title: "Logo",
-    description: "A focused look at logo directions and mark development explorations.",
-    images: buildImages("Logos", ["l1.jpeg", "l2.jpeg", "l3.jpeg", "l4.jpeg", "l5.jpeg"]),
+    // title: "Logo",
+    // description: "A focused look at logo directions and mark development explorations.",
+    images: buildImages("Homepage Images", ["10.jpeg", "11.jpeg", "5.jpeg", "13.jpeg"]),
   },
 ];
 
@@ -140,14 +139,14 @@ export default function WorkShowcaseSection() {
           animate={inView ? "show" : "hidden"}
           className="mb-10 text-center"
         >
-          <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
-            Gallery Preview
+            <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
+            Past Works
           </motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">
-            A selection of work across branding, social media, and logos.
+            A look at the work we deliver.
           </motion.h2>
           <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#6B7280]">
-            Take a look at some of the projects and designs we have delivered.
+            Take a closer look at some of the projects and designs we&apos;ve produced for our clients — from full brand identities to standout visuals.
           </motion.p>
         </motion.div>
 
@@ -159,14 +158,7 @@ export default function WorkShowcaseSection() {
           className="grid gap-5 sm:grid-cols-3"
         >
           {showcaseCards.map((card, i) => (
-            <motion.div key={card.title} variants={staggerItem} className="flex flex-col gap-4">
-              <div className="border border-black/10 bg-white p-5 shadow-[0_12px_30px_rgba(15,36,25,0.06)]">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-dark-green">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 text-xl font-bold text-text-primary">{card.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#6B7280]">{card.description}</p>
-              </div>
+            <motion.div key={i} variants={staggerItem} className="flex flex-col gap-4">
               <Slider images={card.images} />
             </motion.div>
           ))}

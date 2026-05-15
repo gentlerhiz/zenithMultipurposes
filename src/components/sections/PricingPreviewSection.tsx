@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
@@ -222,9 +222,12 @@ export default function PricingPreviewSection() {
               <Sparkles size={12} />
               Interactive Pricing Preview
             </motion.p> */}
-            <motion.h2 variants={fadeUp} className="mt-6 max-w-2xl text-3xl font-bold tracking-[-0.03em] text-text-primary md:text-5xl">
-              Interactive pricing preview.
-            </motion.h2>
+            <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
+              Pricing
+            </motion.p>
+            {/* <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">
+              Service Packages & Pricing
+            </motion.h2> */}
 
             <motion.div variants={staggerContainer} className="mt-8 flex flex-wrap gap-3">
               {services.map((service) => {

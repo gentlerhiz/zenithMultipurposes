@@ -11,39 +11,39 @@ const services = [
   {
     title: "Website Design and Setup",
     description:
-      "Professional websites built to help businesses stand out and attract inquiries.",
+      "We build clean, professional websites that make your business easy to find, trust, and contact.",
     cta: "View Details",
     href: "/services/website-design",
     Icon: Globe,
   },
   {
-    title: "Business and Corporate Branding",
+    title: "Corporate Branding",
     description:
-      "Company profiles, catalogues, branding, and rebranding solutions for a stronger image.",
+      "Full branding and rebranding solutions including company profiles, catalogues, brand identity, and everything your business needs to command respect and recognition.",
     cta: "View Details",
     href: "/services/branding",
     Icon: Award,
   },
   {
-    title: "Social Media Management and Setup",
+    title: "Social Media Setup & Management",
     description:
-      "Professional setup and branding support for social platforms.",
+      "We set up, brand, and manage your social platforms so your business shows up consistently and professionally online.",
     cta: "View Details",
     href: "/services/social-media",
     Icon: BarChart2,
   },
   {
-    title: "Bulk Graphics Design",
+    title: "Bulk Graphics Design (Printable & Non-Printable)",
     description:
-      "Banners, posters, corporate graphics, wedding invites, meeting materials, and print ready designs.",
+      "From banners, posters, and print-ready materials to digital graphics, flyers, and corporate visuals — we produce in volume without compromising quality.",
     cta: "View Details",
     href: "/services/bulk-graphics",
     Icon: Palette,
   },
   {
-    title: "AI Automation Setup",
+    title: "AI Automation for Corporations",
     description:
-      "Smart systems that simplify communication, tasks, and business processes.",
+      "We integrate smart automation systems into your business operations — cutting manual work, speeding up communication, and improving efficiency at scale.",
     cta: "View Details",
     href: "/services/ai-automation",
     Icon: Bot,
@@ -223,7 +223,7 @@ export default function ServicesSection() {
 
               <Link
                 href={service.href}
-                className="mt-auto inline-flex items-center gap-2 text-sm font-medium tracking-[-0.01em] text-[#111111] transition-transform duration-200 hover:gap-3"
+                className="mt-auto pt-4 inline-flex items-center gap-2 text-sm font-medium tracking-[-0.01em] text-[#111111] transition-transform duration-200 hover:gap-3"
               >
                 {service.cta}
                 <ArrowRight size={16} />

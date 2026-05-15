@@ -66,14 +66,12 @@ export default function AiAutomationPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
       <ServicePageLayout
-        iconName="zap"
         iconGradient="from-yellow-50 via-amber-50 to-white"
         badge="AI Automation Setup"
         title="Smart systems that simplify communication and operations."
         description="We design automation workflows that reduce manual tasks, capture leads faster, and keep your team focused on growth."
         heroImage="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&q=80"
         heroImageAlt="Automation workflow dashboard"
-        heroCaption="Workflow automation that connects messages, forms, and reports."
         deliverables={deliverables}
         highlights={highlights}
         pricing={pricing}

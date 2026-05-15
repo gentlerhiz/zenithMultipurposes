@@ -4,14 +4,12 @@ import { CheckCircle2, ExternalLink, Mail } from "lucide-react";
 
 interface ServicePageLayoutProps {
   // Hero Section
-  iconName: string;
   iconGradient: string;
   badge: string;
   title: string;
   description: string;
   heroImage: string;
   heroImageAlt: string;
-  heroCaption: string;
   
   // Deliverables Section
   deliverables: string[];
@@ -50,14 +48,12 @@ interface ServicePageLayoutProps {
 }
 
 export default function ServicePageLayout({
-  iconName,
   iconGradient,
   badge,
   title,
   description,
   heroImage,
   heroImageAlt,
-  heroCaption,
   deliverables,
   highlights,
   pricing,
@@ -69,14 +65,6 @@ export default function ServicePageLayout({
   pastWorksDescription,
   pastWorksLinks,
 }: ServicePageLayoutProps) {
-  // Simple icon mapping using emoji/symbols
-  const iconMap: Record<string, string> = {
-    palette: "🎨",
-    megaphone: "📢",
-    image: "🖼️",
-    zap: "⚡",
-    globe: "🌐",
-  };
   return (
     <main>
       {/* Hero Section */}
@@ -89,9 +77,6 @@ export default function ServicePageLayout({
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <div className="mb-6 inline-flex items-center gap-3 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm">
-                <div className={`flex h-8 w-8 items-center justify-center bg-gradient-to-br ${iconGradient.replace('from-', 'from-').replace('to-white', 'to-transparent')} text-lg`}>
-                  {iconMap[iconName] || "✨"}
-                </div>
                 <span className="text-xs font-bold uppercase tracking-[0.35em] text-[#0F2419]">
                   {badge}
                 </span>
@@ -131,13 +116,6 @@ export default function ServicePageLayout({
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-xl bg-white/95 p-5 backdrop-blur-sm">
-                    <p className="text-sm font-semibold text-[#1A1A1A]">
-                      {heroCaption}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -359,8 +337,7 @@ export default function ServicePageLayout({
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#CDFF00]/10 px-4 py-2">
-                <span className="text-base">{iconMap[iconName] || "✨"}</span>
+              <div className="mb-4 inline-flex items-center rounded-full bg-[#CDFF00]/10 px-4 py-2">
                 <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#0F2419]">
                   Past Works
                 </p>

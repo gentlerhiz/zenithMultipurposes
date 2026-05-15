@@ -1,3 +1,9 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
+
 const historySteps = [
   {
     title: "Foundation",
@@ -17,11 +23,14 @@ const historySteps = [
 ];
 
 export default function AboutHistorySection() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <section className="bg-white py-16">
+    <section ref={ref} className="bg-white py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div>
+        <motion.div variants={staggerContainer} initial="hidden" animate={inView ? "show" : "hidden"} className="grid gap-8 lg:grid-cols-3">
+          <motion.div variants={fadeUp}>
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#0F2419]">
               History
             </p>
@@ -32,11 +41,12 @@ export default function AboutHistorySection() {
               Our growth has been shaped by helping organizations organize
               their brand assets, digital presence, and workflow processes.
             </p>
-          </div>
-          <div className="lg:col-span-2 grid gap-4">
+          </motion.div>
+          <motion.div variants={staggerContainer} className="lg:col-span-2 grid gap-4">
             {historySteps.map((step) => (
-              <div
+              <motion.div
                 key={step.title}
+                variants={staggerItem}
                 className="border border-black/10 bg-[#FAFAFA] p-6"
               >
                 <h3 className="text-lg font-semibold text-[#1A1A1A]">
@@ -45,10 +55,10 @@ export default function AboutHistorySection() {
                 <p className="mt-2 text-sm leading-7 text-[#6B7280]">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

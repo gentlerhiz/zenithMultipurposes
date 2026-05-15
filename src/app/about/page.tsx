@@ -22,7 +22,7 @@ export default function AboutPage() {
         <AboutHeroSection />
         <AboutIntroSection />
         <AboutStatsSection />
-        <AboutHistorySection />
+        {/* <AboutHistorySection /> */}
         <AboutCEOSection />
         <AboutOperationsSection />
       </main>

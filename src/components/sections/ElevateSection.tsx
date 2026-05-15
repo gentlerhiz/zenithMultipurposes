@@ -32,17 +32,17 @@ export default function ElevateSection() {
           <div className="absolute -right-20 -top-20 h-48 w-48 bg-neon-green/8 blur-3xl" />
 
           <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">
-            Brief Introduction
+            Introduction
           </p>
           <h2 className="mt-4 text-2xl font-bold text-text-primary md:text-3xl">
-            Zenith Multipurposes, built on trusted business expertise.
+            Zenith Multipurposes — because your business deserves more than average  
           </h2>
           <p className="mt-4 text-base leading-7 text-[#6B7280]">
-            Zenith Multipurposes is a division of Bornstellar Limited, operating
-            under Zenith Multiservices. We provide creative and business support
-            services that help brands improve their online presence, corporate
-            identity, promotional materials, and workflow efficiency.
-          </p>
+            Zenith Multipurposes is a division of Bornstellar Limited, operating under Zenith Multiservices. 
+            We help businesses look better, run smarter, and grow faster. From building standout websites and 
+            designing high-quality graphics to managing your social media, crafting a powerful corporate brand, 
+            and integrating AI automation into your operations — we handle it all. If you&apos;re ready to take your business to the next level, Zenith Multipurposes is the partner that gets it done.
+           </p>
         </motion.div>
       </motion.div>
     </section>
