@@ -204,7 +204,7 @@ export default function ServicesPage() {
                     Ready to start?
                   </p>
                   <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                    Get a quote for the service that fits your business.
+                    Get a quote for the service that fits your business
                   </h2>
                   <p className="mt-3 text-base text-white/75">
                     Tell us what you need and we will recommend the right plan
