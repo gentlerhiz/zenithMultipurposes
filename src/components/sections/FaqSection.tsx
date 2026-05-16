@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { ChevronDown, MessageCircle, Search, Sparkles } from "lucide-react";
+import { ChevronDown, Search, Sparkles, Phone, Mail } from "lucide-react";
 
 type FaqItem = {
   question: string;
@@ -200,20 +199,7 @@ const faqGroups: FaqGroup[] = [
   },
 ];
 
-const insights = [
-  {
-    title: "Fast kickoff",
-    body: "Share your brief, get a clear scope, and start quickly with a focused plan.",
-  },
-  {
-    title: "Remote friendly",
-    body: "We work with clients across Africa and beyond through online collaboration.",
-  },
-  {
-    title: "Flexible packages",
-    body: "Pick a full pack or request a focused service based on your goals.",
-  },
-];
+// removed insights block (cards moved/removed per request)
 
 export default function FaqSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -251,80 +237,67 @@ export default function FaqSection() {
 
   return (
     <section className="relative">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#f3f1e8_0%,#f6f5f1_42%,#f6f5f1_100%)]" />
-      <div className="mx-auto w-full max-w-6xl px-6 pb-14 pt-12 md:px-10 md:pt-20">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
-          <div>
-            <p className="inline-flex items-center gap-2 border border-[#1f3f16]/10 bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1f3f16]">
-              <Sparkles size={12} />
-              Frequently Asked Questions
-            </p>
-            <h1 className="mt-6 text-4xl font-bold leading-tight text-[#141414] md:text-5xl">
-              Answers to help you move fast and choose the right service.
-            </h1>
-            <p className="mt-4 max-w-2xl text-base text-[#5c5c5c] md:text-lg">
-              Browse by category, search for a topic, and get clear details on
-              branding, social media, web, graphics, and automation.
-            </p>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#f7fdf6_0%,#f6fdf2_42%,#f6fdf2_100%)] opacity-90" />
+      <div className="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24">
+        <div className="relative">
+          <div className="grid gap-8 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-8">
+              <p className="inline-flex items-center gap-2 bg-white/6 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.3em] text-dark-green">
+                <Sparkles size={14} />
+                Frequently Asked Questions
+              </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <label className="relative flex-1">
-                <span className="sr-only">Search questions</span>
-                <Search
-                  size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6b6b6b]"
-                />
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search questions"
-                  className="h-12 w-full border border-black/10 bg-white pl-12 pr-4 text-sm text-[#141414] shadow-[0_10px_30px_rgba(0,0,0,0.05)] outline-none transition focus:border-[#1f3f16]"
-                />
-              </label>
-              <div className="flex items-center gap-3 border border-black/10 bg-white px-5 py-3 text-sm text-[#5c5c5c]">
-                <MessageCircle size={18} className="text-[#1f3f16]" />
-                <span>Need help fast? Reach out anytime.</span>
+              <h1 className="mt-6 text-4xl font-bold leading-tight text-text-primary md:text-5xl">
+                Answers to help you move fast and choose the right service.
+              </h1>
+
+              <p className="mt-4 max-w-2xl text-base text-text-secondary md:text-lg">
+                Browse by category or search for a topic to get clear details on
+                branding, social media, web, graphics, and automation.
+              </p>
+
+              <div className="mt-6 max-w-xl">
+                <label className="relative block">
+                  <span className="sr-only">Search questions</span>
+                  <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6b6b6b]" />
+                  <input
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    placeholder="Search questions"
+                    className="h-12 w-full border border-black/10 bg-white pl-12 pr-4 text-sm text-[#141414] shadow-sm outline-none transition focus:border-dark-green"
+                  />
+                </label>
               </div>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="border border-black/10 bg-white px-5 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.06)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1f3f16]">
-                  Response time
-                </p>
-                <p className="mt-2 text-sm text-[#5c5c5c]">
-                  Most questions answered in 24 to 48 hours.
-                </p>
-              </div>
-              <div className="border border-black/10 bg-white px-5 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.06)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1f3f16]">
-                  Need a quote?
-                </p>
-                <p className="mt-2 text-sm text-[#5c5c5c]">
-                  Send a brief and get a tailored recommendation.
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-[#1f3f16]"
-                >
-                  Contact us
-                </Link>
+            <div className="lg:col-span-4">
+              <div className="hidden lg:block">
+                <div className="sticky top-24">
+                  <div className="rounded-lg border border-black/6 bg-white p-5 shadow-sm">
+                    <div className="flex items-center gap-3">
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-neon-green/10 text-neon-green">
+                        <Phone size={18} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-text-primary">Need help fast?</p>
+                        <a href="tel:+2349037468616" className="mt-2 block text-sm font-medium text-text-primary hover:underline">+234 903 746 8616</a>
+                        <a href="tel:+2348108529124" className="mt-1 block text-sm font-medium text-text-primary hover:underline">+234 810 852 9124</a>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex items-start gap-3">
+                      <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-off-white text-dark-green">
+                        <Mail size={16} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-text-secondary">Email</p>
+                        <a href="mailto:Dzmultipurposes@gmail.com" className="text-sm font-medium text-text-primary hover:underline">Dzmultipurposes@gmail.com</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="grid gap-4">
-            {insights.map((item) => (
-              <div
-                key={item.title}
-                className="border border-black/10 bg-white px-6 py-5 shadow-[0_14px_30px_rgba(0,0,0,0.06)]"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1f3f16]">
-                  {item.title}
-                </p>
-                <p className="mt-3 text-sm text-[#5c5c5c]">{item.body}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -368,8 +341,8 @@ export default function FaqSection() {
           )}
         </div>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-10">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="space-y-8">
             {visibleGroups.length === 0 ? (
               <div className="border border-black/10 bg-white px-8 py-10 text-center">
                 <p className="text-lg font-semibold text-[#141414]">
@@ -430,50 +403,15 @@ export default function FaqSection() {
             )}
           </div>
 
-          <aside className="space-y-6 lg:sticky lg:top-24">
-            <div className="border border-black/10 bg-[#1f3f16] px-6 py-6 text-white shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-                Start a project
-              </p>
-              <p className="mt-3 text-lg font-semibold">
-                Ready to elevate your brand and systems?
-              </p>
-              <p className="mt-3 text-sm text-white/70">
-                Send your brief and we will recommend the right package for you.
-              </p>
-              <a
-                href="/contact"
-                className="mt-5 inline-flex bg-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#1f3f16]"
-              >
-                Contact the team
-              </a>
+          <aside className="space-y-6 lg:sticky lg:top-20">
+            <div className="border border-black/8 bg-[#1f3f16] px-6 py-5 text-white shadow-sm rounded-md">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Start a project</p>
+              <p className="mt-3 text-lg font-semibold">Ready to elevate your brand and systems?</p>
+              <p className="mt-3 text-sm text-white/80">Send a short brief and we will recommend the right package for you.</p>
+              <a href="/contact" className="mt-4 inline-flex bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#1f3f16] rounded">Contact the team</a>
             </div>
 
-            <div className="border border-black/10 bg-white px-6 py-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1f3f16]">
-                How it works
-              </p>
-              <ol className="mt-4 space-y-4 text-sm text-[#5c5c5c]">
-                <li className="flex gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center bg-[#f6f5f1] text-xs font-semibold text-[#1f3f16]">
-                    1
-                  </span>
-                  Share your goals, assets, and timeline.
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center bg-[#f6f5f1] text-xs font-semibold text-[#1f3f16]">
-                    2
-                  </span>
-                  Receive a clear scope and package recommendation.
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center bg-[#f6f5f1] text-xs font-semibold text-[#1f3f16]">
-                    3
-                  </span>
-                  Approve, make part payment, and start delivery.
-                </li>
-              </ol>
-            </div>
+            {/* 'How it works' removed for a cleaner layout */}
           </aside>
         </div>
       </div>

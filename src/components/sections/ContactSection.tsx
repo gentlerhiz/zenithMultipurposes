@@ -11,7 +11,7 @@ export default function ContactSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" ref={ref} className="bg-[#FAFAFA] py-16 md:py-20">
+    <section id="contact" ref={ref} className="bg-[#e8faf1] py-16 md:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <motion.div
           variants={fadeUp}

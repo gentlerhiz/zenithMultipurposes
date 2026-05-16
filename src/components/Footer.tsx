@@ -5,7 +5,7 @@ import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F2419] text-white">
+    <footer className="bg-dark-green text-white">
       <div className="mx-auto w-full max-w-7xl px-6 py-12 md:px-10">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-xs">
@@ -18,7 +18,7 @@ export default function Footer() {
                 className="h-11 w-11 rounded-full object-contain"
               />
               <span className="text-base font-bold tracking-wide text-white">
-                Zenith <span className="text-[#CDFF00]">Multipurposes</span>
+                Zenith <span className="text-neon-green">Multipurposes</span>
               </span>
             </div>
             <p className="mt-4 text-sm leading-6 text-white/70">
@@ -35,7 +35,7 @@ export default function Footer() {
                 href="https://www.instagram.com/zenithmultipurposes/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-[#CDFF00] hover:bg-[#CDFF00]/10 hover:text-[#CDFF00]"
+                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-neon-green hover:bg-neon-green/10 hover:text-neon-green"
               >
                 Instagram
               </a>
@@ -43,7 +43,7 @@ export default function Footer() {
                 href="https://www.facebook.com/ZenithMultipurposes"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-[#CDFF00] hover:bg-[#CDFF00]/10 hover:text-[#CDFF00]"
+                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-neon-green hover:bg-neon-green/10 hover:text-neon-green"
               >
                 Facebook
               </a>
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="https://x.com/ZenithMulticom"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-[#CDFF00] hover:bg-[#CDFF00]/10 hover:text-[#CDFF00]"
+                className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-neon-green hover:bg-neon-green/10 hover:text-neon-green"
               >
                 X
               </a>
@@ -59,30 +59,33 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#CDFF00]/70">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-neon-green/70">
               Navigation
             </p>
             <div className="mt-4 grid gap-2 text-sm font-medium text-white/80">
-              <Link href="/about" className="transition hover:text-[#CDFF00]">
+              <Link href="/about" className="transition hover:text-neon-green">
                 About
               </Link>
-              <Link href="/services" className="transition hover:text-[#CDFF00]">
+              <Link href="/services" className="transition hover:text-neon-green">
                 Services
               </Link>
-              <Link href="/#gallery" className="transition hover:text-[#CDFF00]">
+              <Link href="/get-a-quote" className="transition hover:text-neon-green">
+                Get a Quote
+              </Link>
+              <Link href="/#gallery" className="transition hover:text-neon-green">
                 Gallery
               </Link>
-              <Link href="/faq" className="transition hover:text-[#CDFF00]">
+              <Link href="/faq" className="transition hover:text-neon-green">
                 FAQ
               </Link>
-              <Link href="/contact" className="transition hover:text-[#CDFF00]">
+              <Link href="/contact" className="transition hover:text-neon-green">
                 Contact
               </Link>
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#CDFF00]/70">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-neon-green/70">
               Contact
             </p>
             <div className="mt-4 grid gap-2 text-sm text-white/80">
@@ -91,17 +94,17 @@ export default function Footer() {
                 <span>No 23, Akinyemi Street, Oluyole Estate, Oyo State</span>
               </div>
 
-              <a href="mailto:Dzmultipurposes@gmail.com" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+              <a href="mailto:Dzmultipurposes@gmail.com" className="flex items-center gap-2 transition hover:text-neon-green">
                 <FiMail className="h-4 w-4 text-white/80" />
                 Dzmultipurposes@gmail.com
               </a>
 
-              <a href="https://wa.me/2349037468616" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+              <a href="https://wa.me/2349037468616" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition hover:text-neon-green">
                 <FaWhatsapp className="h-4 w-4 text-white/80" />
                 +234 903 746 8616
               </a>
 
-              <a href="tel:08108529124" className="flex items-center gap-2 transition hover:text-[#CDFF00]">
+              <a href="tel:08108529124" className="flex items-center gap-2 transition hover:text-neon-green">
                 <FiPhone className="h-4 w-4 text-white/80" />
                 08108529124
               </a>

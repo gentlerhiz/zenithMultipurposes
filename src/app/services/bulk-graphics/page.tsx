@@ -59,19 +59,40 @@ const showcaseCards = [
     title: "Travel-led graphics",
     description:
       "Poster and campaign visuals with a polished promotional finish.",
-    images: ["/Leyony Travels/le1.jpeg", "/Leyony Travels/le3.jpeg", "/Shopify Drinks and More/s1.jpeg"],
+    images: [
+      "/BulkGraphics/1.jpg",
+      "/BulkGraphics/2.jpg",
+      "/BulkGraphics/3.jpg",
+      "/BulkGraphics/4.jpg",
+      "/BulkGraphics/5.jpeg",
+      "/BulkGraphics/6.jpg",
+    ],
   },
   {
     title: "Event and product promos",
     description:
       "Reusable graphics that keep launches, announcements, and sales visually consistent.",
-    images: ["/Leyony Travels/le4.jpeg", "/Shopify Drinks and More/s2.jpeg", "/Shopify Drinks and More/s3.jpeg"],
+    images: [
+      "/BulkGraphics/7.jpeg",
+      "/BulkGraphics/8.jpg",
+      "/BulkGraphics/9.jpg",
+      "/BulkGraphics/10.jpeg",
+      "/BulkGraphics/11.jpeg",
+      "/BulkGraphics/12.jpeg",
+    ],
   },
   {
     title: "Print-ready details",
     description:
       "Additional samples showing how the design system holds up across different formats.",
-    images: ["/Leyony Travels/le5.jpeg", "/Shopify Drinks and More/s4.jpeg", "/Leyony Travels/le6.jpeg"],
+    images: [
+      "/BulkGraphics/13.jpeg",
+      "/BulkGraphics/14.jpeg",
+      "/BulkGraphics/15.jpeg",
+      "/BulkGraphics/16.jpeg",
+      "/BulkGraphics/17.jpeg",
+      "/BulkGraphics/18.jpeg",
+    ],
   },
 ];
 
@@ -84,7 +105,7 @@ export default function BulkGraphicsPage() {
         badge="Bulk Graphics Design"
         title="Professional graphics at scale"
         description="High-quality design assets that elevate your brand across all platforms"
-        heroImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80"
+        heroImage="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         heroImageAlt="Designing print graphics"
         deliverables={deliverables}
         pricing={pricing}

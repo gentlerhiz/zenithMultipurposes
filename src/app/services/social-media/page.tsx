@@ -71,19 +71,43 @@ const showcaseCards = [
     title: "Platform branding",
     description:
       "Profile-ready visuals and cover assets that make social channels feel coordinated.",
-    images: ["/Eminent Autos/em7.jpeg", "/Eminent Autos/em8.jpeg"],
+    images: [
+      "/SocialMedia/em6.jpeg",
+      "/SocialMedia/em7.jpeg",
+      "/SocialMedia/em8.jpeg",
+      "/SocialMedia/em9.jpeg",
+      "/SocialMedia/em10.jpeg",
+      "/SocialMedia/em11.jpeg",
+      "/SocialMedia/le8.jpeg",
+    ],
   },
   {
     title: "Campaign content",
     description:
       "Social post graphics that keep the message clear and the feed visually consistent.",
-    images: ["/Eminent Autos/em9.jpeg", "/Trendy Shoes/tr2.jpeg"],
+    images: [
+      "/SocialMedia/le9.jpeg",
+      "/SocialMedia/le10.jpeg",
+      "/SocialMedia/le11.jpeg",
+      "/SocialMedia/ok2.jpeg",
+      "/SocialMedia/s2.jpeg",
+      "/SocialMedia/s3.jpeg",
+      "/SocialMedia/s4.jpeg",
+    ],
   },
   {
     title: "Short-form support",
     description:
       "Extra visuals for promotions, launches, and campaign follow-ups.",
-    images: ["/Trendy Shoes/tr3.jpeg"],
+    images: [
+      "/SocialMedia/s5.jpeg",
+      "/SocialMedia/s12.jpeg",
+      "/SocialMedia/s13.jpeg",
+      "/SocialMedia/s14.jpeg",
+      "/SocialMedia/s15.jpeg",
+      "/SocialMedia/s16.jpeg",
+      "/SocialMedia/s17.jpeg",
+    ],
   },
 ];
 
@@ -96,7 +120,7 @@ export default function SocialMediaPage() {
         badge="Social Media Management"
         title="Social media that engages and grows"
         description="Strategic content and management that builds your audience"
-        heroImage="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80"
+        heroImage="https://images.unsplash.com/photo-1724862936518-ae7fcfc052c1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29jaWFsJTIwbWVkaWElMjBtYW5hZ2VtZW50fGVufDB8fDB8fHww"
         heroImageAlt="Social media content planning"
         deliverables={deliverables}
         whatWeDo="We set up, brand, and manage your social media platforms so your business maintains a professional, consistent presence online — without you having to think about it. This includes Facebook, Instagram, X (Twitter), LinkedIn, TikTok, YouTube, and WhatsApp Business, with support for other platforms where relevant to your audience."

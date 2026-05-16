@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const buildImages = (folder: string, files: string[]) => files.map((file) => encodeURI(`/${folder}/${file}`));
 
-const showcaseCards = [
+const defaultShowcaseCards = [
   {
     // title: "Branding",
     // description: "Identity-led visuals pulled from our branding and product design work.",
@@ -125,9 +125,15 @@ function Slider({ images }: { images: string[] }) {
   );
 }
 
-export default function WorkShowcaseSection() {
+export default function WorkShowcaseSection({
+  showcaseCards,
+}: {
+  showcaseCards?: Array<{ images: string[]; title?: string; description?: string }>;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const cardsToRender = showcaseCards && showcaseCards.length > 0 ? showcaseCards : defaultShowcaseCards;
 
   return (
     <section id="gallery" ref={ref} className="bg-off-white py-16 md:py-20">
@@ -157,7 +163,7 @@ export default function WorkShowcaseSection() {
           animate={inView ? "show" : "hidden"}
           className="grid gap-5 sm:grid-cols-3"
         >
-          {showcaseCards.map((card, i) => (
+          {cardsToRender.map((card, i) => (
             <motion.div key={i} variants={staggerItem} className="flex flex-col gap-4">
               <Slider images={card.images} />
             </motion.div>

@@ -73,7 +73,7 @@ export default function AiAutomationPage() {
           badge="AI Automation Setup"
           title="Automation that simplifies your operations"
           description="Smart systems designed to save time, reduce costs, and boost efficiency"
-          heroImage="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&q=80"
+          heroImage="https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QUklMjBhdXRvbWF0aW9ufGVufDB8fDB8fHww"
           heroImageAlt="Automation workflow dashboard"
           whatWeDo="We design and integrate AI-powered automation systems into your business operations — reducing manual work, speeding up communication, and improving efficiency across your team. We make automation practical, accessible, and tailored specifically to how your business runs."
           whoThisIsFor={[

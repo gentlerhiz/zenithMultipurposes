@@ -80,11 +80,11 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
               className="h-9 w-9 rounded-full object-contain"
               priority
             />
-            <span className={`text-sm font-semibold tracking-tight transition-colors duration-300 ${solid ? "text-[#1A1A1A]" : "text-white"}`}>
-              Zenith <span className={solid ? "text-[#0F2419]" : "text-[#CDFF00]"}>Multipurposes</span>
+            <span className={`text-sm font-semibold tracking-tight transition-colors duration-300 ${solid ? "text-text-primary" : "text-white"}`}>
+              Zenith <span className={solid ? "text-dark-green" : "text-neon-green"}>Multipurposes</span>
             </span>
           </Link>
-
+           
           {/* Desktop nav */}
           <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
@@ -143,7 +143,7 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
                           key={s.label}
                           href={s.href}
                           onClick={() => setServicesOpen(false)}
-                          className="block rounded-xl px-4 py-2.5 text-[13px] font-medium text-[#4B5563] transition hover:bg-[#CDFF00]/10 hover:text-[#0F2419]"
+                          className="block rounded-xl px-4 py-2.5 text-[13px] font-medium text-text-secondary transition hover:bg-neon-green/10 hover:text-dark-green"
                         >
                           {s.label}
                         </Link>
@@ -157,11 +157,11 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
 
           {/* Desktop CTA */}
           <Link
-            href="/services"
+            href="/get-a-quote"
             className={`hidden px-5 py-2.5 text-[13px] font-semibold transition-all duration-200 md:inline-flex ${
               solid
-                ? "bg-[#CDFF00] text-[#0F2419] hover:bg-[#B8E600]"
-                : "bg-[#CDFF00] text-[#0F2419] hover:bg-[#E8FFB7]"
+                ? "bg-neon-green text-dark-green hover:bg-[#B8E600]"
+                : "bg-neon-green text-dark-green hover:bg-mint-green"
             }`}
           >
             Get a Quote
@@ -172,7 +172,7 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
             className={`flex h-9 w-9 items-center justify-center rounded-lg transition md:hidden ${
-              solid ? "text-[#1A1A1A]" : "text-white"
+              solid ? "text-text-primary" : "text-white"
             }`}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -204,8 +204,8 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between border-b border-black/6 px-6 py-5">
-                <span className="text-sm font-semibold text-[#1A1A1A]">
-                  Zenith <span className="text-[#0F2419]">Multipurposes</span>
+                <span className="text-sm font-semibold text-text-primary">
+                  Zenith <span className="text-dark-green">Multipurposes</span>
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -222,7 +222,7 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="rounded-xl px-4 py-3 text-[15px] font-medium text-[#4B5563] transition hover:bg-[#CDFF00]/10 hover:text-[#0F2419]"
+                    className="rounded-xl px-4 py-3 text-[15px] font-medium text-text-secondary transition hover:bg-neon-green/10 hover:text-dark-green"
                   >
                     {link.label}
                   </Link>
@@ -230,7 +230,7 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
 
                 <div className="my-2 h-px bg-black/6" />
 
-                <p className="px-4 pb-1 pt-0.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#9CA3AF]">
+                <p className="px-4 pb-1 pt-0.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-medium-gray">
                   Services
                 </p>
                 {services.map((s) => (
@@ -253,9 +253,9 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
               {/* Drawer CTA */}
               <div className="border-t border-black/6 p-4">
                 <Link
-                  href="/services"
+                    href="/get-a-quote"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full rounded-full bg-[#CDFF00] py-3.5 text-center text-[13px] font-semibold text-[#0F2419] transition hover:bg-[#B8E600]"
+                  className="block w-full rounded-full bg-neon-green py-3.5 text-center text-[13px] font-semibold text-dark-green transition hover:bg-[#B8E600]"
                 >
                   Get a Quote
                 </Link>

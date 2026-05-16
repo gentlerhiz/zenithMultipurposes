@@ -5,6 +5,8 @@ import Link from "next/link";
 import { CheckCircle2, ExternalLink, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeLeft, fadeRight, staggerContainer } from "../lib/motion";
+import WorkShowcaseSection from "./sections/WorkShowcaseSection";
+import ContactSection from "./sections/ContactSection";
 
 interface ServicePageLayoutProps {
   iconGradient: string;
@@ -58,7 +60,7 @@ export default function ServicePageLayout({
   return (
     <main>
       {/* Hero */}
-      <section className={`relative overflow-hidden ${iconGradient} pb-16 pt-24 md:pt-28`}>
+      <section className="relative overflow-hidden bg-neon-green/5 pb-16 pt-24 md:pt-28">
         <div className="absolute right-0 top-0 h-96 w-96 bg-white/10 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-96 w-96 bg-white/10 blur-3xl" />
         <div className="relative mx-auto w-full max-w-6xl px-6 md:px-10">
@@ -87,6 +89,50 @@ export default function ServicePageLayout({
           </div>
         </div>
       </section>
+
+
+
+
+      {/* Past Works */}
+      <section id="past-works" className="bg-white py-20">
+        <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div>
+              <div className="mb-4 inline-flex items-center rounded-full bg-neon-green/10 px-4 py-2">
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Past Works</p>
+              </div>
+              <h2 className="text-3xl font-bold md:text-4xl">{pastWorksTitle}</h2>
+              <p className="mt-4 text-base leading-7 text-[#6B7280]">{pastWorksDescription}</p>
+            </div>
+            <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-lg md:p-6">
+              <div className="space-y-3">
+                {pastWorksLinks.map((link, index) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.type === "external" ? "_blank" : undefined}
+                    rel={link.type === "external" ? "noreferrer noopener" : undefined}
+                    className={`group flex w-full items-center justify-between rounded-xl border px-5 py-4 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
+                      index === 0
+                        ? "border-neon-green bg-neon-green text-dark-green"
+                        : "border-black/10 bg-white text-text-primary hover:border-dark-green/20 hover:bg-off-white"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {link.type === "external" ? (
+                      <ExternalLink className="h-4 w-4" />
+                    ) : (
+                      <Mail className="h-4 w-4" />
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
 
       {/* What We Do / Who This Is For */}
       <motion.section
@@ -166,89 +212,18 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* Showcase */}
+      {/* Showcase (carousel) */}
       {showcaseCards && showcaseCards.length > 0 && (
-        <section className="bg-white py-20">
-          <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-            <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Past Works Showcase</p>
-              <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">{showcaseTitle || "Selected work that shows the range of what we do."}</h2>
-              <p className="mt-4 text-base leading-7 text-text-secondary">{showcaseDescription || "A quick visual tour through previous work samples."}</p>
-            </div>
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              {showcaseCards.map((card) => (
-                <article key={card.title} className="group overflow-hidden border border-black/10 bg-off-white shadow-lg">
-                  <div className="grid gap-2 p-3">
-                    <div className="relative aspect-4/3 overflow-hidden border border-black/5 bg-white">
-                      <Image src={encodeURI(card.images[0])} alt={card.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
-                    </div>
-                  </div>
-                  <div className="border-t border-black/10 bg-white p-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">01</p>
-                    <h3 className="mt-2 text-xl font-bold text-text-primary">{card.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-[#6B7280]">{card.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <WorkShowcaseSection showcaseCards={showcaseCards} />
       )}
 
-      {/* Past Works */}
-      <section id="past-works" className="bg-white py-20">
-        <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <div className="mb-4 inline-flex items-center rounded-full bg-neon-green/10 px-4 py-2">
-                <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Past Works</p>
-              </div>
-              <h2 className="text-3xl font-bold md:text-4xl">{pastWorksTitle}</h2>
-              <p className="mt-4 text-base leading-7 text-[#6B7280]">{pastWorksDescription}</p>
-            </div>
-            <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-lg md:p-6">
-              <div className="space-y-3">
-                {pastWorksLinks.map((link, index) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.type === "external" ? "_blank" : undefined}
-                    rel={link.type === "external" ? "noreferrer noopener" : undefined}
-                    className={`group flex w-full items-center justify-between rounded-xl border px-5 py-4 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
-                      index === 0
-                        ? "border-neon-green bg-neon-green text-dark-green"
-                        : "border-black/10 bg-white text-text-primary hover:border-dark-green/20 hover:bg-off-white"
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    {link.type === "external" ? (
-                      <ExternalLink className="h-4 w-4" />
-                    ) : (
-                      <Mail className="h-4 w-4" />
-                    )}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Why It Matters */}
       <motion.section className="bg-linear-to-br from-dark-green via-[#1a3a28] to-dark-green py-20 text-white" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <motion.div className="order-2 lg:order-1" variants={fadeLeft}>
-              <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/5 to-white/10">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="mb-4 text-5xl font-bold text-white/20">03</div>
-                    <p className="text-sm font-semibold text-white/40">Why It Matters</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div className="order-1 lg:order-2" variants={fadeRight}>
+          <div className="grid gap-12">
+            <motion.div variants={fadeRight}>
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-neon-green">The Impact</p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">Why It Matters</h2>
               <p className="mt-6 text-base leading-7 text-white/80">{whyItMatters}</p>
@@ -258,26 +233,21 @@ export default function ServicePageLayout({
       </motion.section>
 
       {/* Why Zenith */}
-      <motion.section className="bg-off-white py-20" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
+      <motion.section className="bg-off-white py-16" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-12">
             <motion.div variants={fadeLeft}>
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Our Advantage</p>
               <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">Why Zenith Multipurposes</h2>
               <p className="mt-6 text-base leading-7 text-text-secondary">{whyZenithMultipurposes}</p>
             </motion.div>
-            <motion.div variants={fadeRight}>
-              <div className="relative aspect-square overflow-hidden rounded-2xl border border-black/10 bg-linear-to-br from-neon-green/10 to-dark-green/5">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="mb-4 text-5xl font-bold text-dark-green/20">04</div>
-                    <p className="text-sm font-semibold text-dark-green/40">Why Zenith</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
+      </motion.section>
+
+      
+      <motion.section >
+        <ContactSection />
       </motion.section>
     </main>
   );

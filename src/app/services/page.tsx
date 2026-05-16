@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Palette, Globe, Megaphone, Image as ImageIcon, Zap } from "lucide-react";
+// lucide-react icons not required in this file
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ServicesSection from "@/components/sections/ServicesSection";
 
 export const metadata: Metadata = {
   title: "Services | Zenith Multipurposes",
@@ -11,137 +12,13 @@ export const metadata: Metadata = {
     "Explore branding, web design, social media, graphics, and AI automation services tailored for business growth.",
 };
 
-const serviceCards = [
-  {
-    title: "Branding and Rebranding",
-    description:
-      "Top to bottom company profile building, catalogue creation, brochures, and identity systems.",
-    href: "/services/branding",
-    worksHref: "/services/branding#past-works",
-    icon: Palette,
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    title: "Social Media Management and Setup",
-    description:
-      "Professional setup and management across all social platforms, including YouTube.",
-    href: "/services/social-media",
-    worksHref: "/services/social-media#past-works",
-    icon: Megaphone,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "Bulk Graphics Design for Printing",
-    description:
-      "Banners, posters, event materials, wedding invites, and corporate graphics for print.",
-    href: "/services/bulk-graphics",
-    worksHref: "/services/bulk-graphics#past-works",
-    icon: ImageIcon,
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    title: "AI Automation Setup / Design",
-    description:
-      "Workflow automation for businesses ready to integrate AI and improve operations.",
-    href: "/services/ai-automation",
-    worksHref: "/services/ai-automation#past-works",
-    icon: Zap,
-    color: "from-yellow-500 to-amber-500",
-  },
-  {
-    title: "Website Designing and Building",
-    description:
-      "Professional business websites, landing pages, and corporate site builds.",
-    href: "/services/website-design",
-    worksHref: "/services/website-design#past-works",
-    icon: Globe,
-    color: "from-green-500 to-emerald-500",
-  },
-];
+// Service cards data removed; `ServicesSection` handles service listings.
 
-const serviceGallery = [
-  {
-    src: "/portfolio/IBRAHIM01.jpg",
-    alt: "Brand identity showcase",
-  },
-  {
-    src: "/portfolio/Fries by Koks 1.jpg",
-    alt: "Social media design sample",
-  },
-  {
-    src: "/portfolio/Randshelp Banner Design.jpg",
-    alt: "Corporate print banner",
-  },
-  {
-    src: "/portfolio/STRATEGY PLAN 1.jpg",
-    alt: "Business proposal layout",
-  },
-  {
-    src: "/portfolio/COLOUR.jpg",
-    alt: "Brand color system",
-  },
-  {
-    src: "/portfolio/TBSPINE.jpg",
-    alt: "Catalogue spine design",
-  },
-];
+// serviceGallery removed — not used on this page
 
-const serviceHighlights = [
-  {
-    title: "Done-for-you delivery",
-    description: "Clear scopes, timelines, and asset handoff every step.",
-  },
-  {
-    title: "Conversion ready assets",
-    description: "Designs that build trust and make customers act.",
-  },
-  {
-    title: "Systems that scale",
-    description: "Automation and workflows that free your team to grow.",
-  },
-];
+// serviceHighlights removed — highlight cards not needed on this page
 
-const whatWeDo = [
-  "Branding and rebranding from top to bottom, including company profile building, catalogue creation, and brochures.",
-  "Social media management and setup across all platforms, including YouTube.",
-  "Bulk graphics design for printing such as banners, posters, corporate graphics, and event materials.",
-  "AI automation setup and design for businesses integrating smart workflows.",
-  "Website designing and building for credible online presence.",
-];
-
-
-const pastWorks = [
-  {
-    title: "Branding & Rebranding",
-    description: "Logos, company profiles, catalogues, and identity systems.",
-    href: "https://drive.google.com/drive/folders/1ODIGBS04PDPi3EkiOWmbgOria3ABtyJB?usp=sharing",
-    linkLabel: "View branding works",
-  },
-  {
-    title: "Social Media",
-    description: "Profile branding, social media templates, and content packs.",
-    href: "mailto:Dzmultipurposes@gmail.com?subject=Social%20Media%20Past%20Works%20Request",
-    linkLabel: "Request social works",
-  },
-  {
-    title: "Bulk Graphics",
-    description: "Event packs, banners, posters, and print ready creatives.",
-    href: "mailto:Dzmultipurposes@gmail.com?subject=Bulk%20Graphics%20Past%20Works%20Request",
-    linkLabel: "Request graphics works",
-  },
-  {
-    title: "Website Design",
-    description: "Business websites, landing pages, and portfolio builds.",
-    href: "mailto:Dzmultipurposes@gmail.com?subject=Website%20Past%20Works%20Request",
-    linkLabel: "Request website works",
-  },
-  {
-    title: "AI Automation",
-    description: "Workflow automation examples and strategy samples.",
-    href: "mailto:Dzmultipurposes@gmail.com?subject=AI%20Automation%20Past%20Works%20Request",
-    linkLabel: "Request automation works",
-  },
-];
+// whatWeDo and pastWorks removed — kept in repo history if needed
 
 export default function ServicesPage() {
   return (
@@ -165,7 +42,7 @@ export default function ServicesPage() {
                   Services
                 </p>
                 <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-                  Professional support for branding, design, and automation.
+                  Professional support for your growth.
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-white/75">
                   Each service has a dedicated page with details, pricing, and past
@@ -197,27 +74,12 @@ export default function ServicesPage() {
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,31,11,0.1)_0%,rgba(14,31,11,0.42)_100%)]" />
                 </div>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {serviceHighlights.map((item) => (
-                    <div
-                      key={item.title}
-                      className="border border-white/10 bg-white/5 p-4 text-white shadow-[0_18px_36px_rgba(17,17,17,0.08)]"
-                    >
-                      <p className="text-sm font-semibold text-[#CDFF00]">
-                        {item.title}
-                      </p>
-                      <p className="mt-2 text-sm text-white/65">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#FAFAFA] py-16">
+        {/* <section className="bg-[#FAFAFA] py-16">
           <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
             <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center">
               <div>
@@ -250,9 +112,9 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="bg-[#FAFAFA] py-16">
+        {/* <section className="bg-[#FAFAFA] py-16">
           <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
               <div>
@@ -284,84 +146,13 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section id="service-list" className="bg-white py-20">
-          <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-            <div className="mb-12 text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#0F2419]/5 px-4 py-2">
-                <Sparkles className="h-4 w-4 text-[#0F2419]" />
-                <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#0F2419]">
-                  Our services
-                </p>
-              </div>
-              <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-                Five core services built for your growth.
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#575757]">
-                Select a service to see pricing, details, and past work samples
-                from our portfolio.
-              </p>
-            </div>
+        <ServicesSection />
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {serviceCards.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <div
-                    key={service.title}
-                    className="group relative flex flex-col overflow-hidden border border-black/10 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {/* Gradient accent bar */}
-                    <div className={`h-1.5 w-full bg-gradient-to-r ${service.color}`} />
-                    
-                    <div className="flex flex-1 flex-col p-6 lg:p-8">
-                      {/* Icon */}
-                      <div className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${service.color} shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                        <Icon className="h-7 w-7 text-white" />
-                      </div>
+        
 
-                      {/* Content */}
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-[#1A1A1A] transition-colors duration-300 group-hover:text-[#0F2419]">
-                          {service.title}
-                        </h3>
-                        <p className="mt-3 text-sm leading-relaxed text-[#575757]">
-                          {service.description}
-                        </p>
-                      </div>
-
-                      {/* Actions */}
-                      <div className="mt-6 flex flex-col gap-3">
-                        <Link
-                          href={service.href}
-                          className="group/btn flex items-center justify-between rounded-lg bg-[#0F2419] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0e1f0b]"
-                        >
-                          <span>View Details & Pricing</span>
-                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                        </Link>
-                        <Link
-                          href={service.worksHref}
-                          className="flex items-center justify-center rounded-lg border border-[#0F2419]/20 bg-[#0F2419]/5 px-5 py-3 text-sm font-semibold text-[#0F2419] transition-all duration-300 hover:border-[#0F2419]/40 hover:bg-[#0F2419]/10"
-                        >
-                          View Past Works
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Hover effect overlay */}
-                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${service.color} opacity-10 blur-2xl`} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section id="past-works" className="bg-[#FAFAFA] py-16">
+        {/* <section id="past-works" className="bg-[#FAFAFA] py-16">
           <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
             <div className="mb-10">
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#0F2419]">
@@ -402,7 +193,7 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="bg-white py-16">
           <div className="mx-auto w-full max-w-6xl px-6 md:px-10">

@@ -78,19 +78,43 @@ const showcaseCards = [
     title: "Identity systems",
     description:
       "Logo explorations and brand marks that help a business feel distinct and memorable.",
-    images: ["/Branding/b10.jpeg", "/Branding/b14.jpeg", "/Branding/b15.jpeg"],
+    images: [
+      "/Branding/b7.jpeg",
+      "/Branding/b9.jpeg",
+      "/Branding/b10.jpeg",
+      "/Branding/b14.jpeg",
+      "/Branding/b15.jpeg",
+      "/Branding/b16.jpeg",
+      "/Branding/b17.jpeg",
+    ],
   },
   {
     title: "Brand rollout visuals",
     description:
       "Practical identity applications that show how a brand holds up across different uses.",
-    images: ["/Branding/b16.jpeg", "/Branding/b17.jpeg", "/Trendy Shoes/tr2.jpeg"],
+    images: [
+      "/Branding/b18.jpeg",
+      "/Branding/b22.jpeg",
+      "/Branding/b23.jpeg",
+      "/Branding/b24.jpeg",
+      "/Branding/b25.jpeg",
+      "/Branding/b26.jpeg",
+      "/Branding/b27.jpg",
+    ],
   },
   {
     title: "Campaign-ready details",
     description:
       "Supporting visuals that round out a branding system with a polished finish.",
-    images: ["/Trendy Shoes/tr3.jpeg"],
+    images: [
+      "/Branding/b28.jpeg",
+      "/Branding/b29.jpeg",
+      "/Branding/b30.jpeg",
+      "/Branding/b31.jpeg",
+      "/Branding/b7.jpeg",
+      "/Branding/b9.jpeg",
+      "/Branding/b10.jpeg",
+    ],
   },
 ];
 
