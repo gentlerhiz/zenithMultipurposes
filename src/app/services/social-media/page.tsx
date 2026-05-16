@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "Social Media Management | Zenith Multipurposes",
@@ -10,28 +10,30 @@ export const metadata: Metadata = {
 };
 
 const deliverables = [
-  "Profile setup or cleanup across IG, FB, TikTok, LinkedIn, X, and YouTube",
-  "Branding assets like banners, highlight covers, and profile visuals",
-  "Content planning with graphics and captions",
-  "Monthly monitoring and engagement support",
-  "YouTube upload management, thumbnails, and SEO basics",
-];
-
-const highlights = [
   {
-    title: "Consistent posting",
+    title: "Platform Setup & Branding",
     description:
-      "Stay visible with a steady stream of branded content and captions.",
+      "Professional setup of your social profiles — bios, cover images, profile photos, and branded visuals aligned with your corporate identity.",
   },
   {
-    title: "Platform ready branding",
+    title: "Content Strategy",
     description:
-      "We align your visuals across Instagram, Facebook, TikTok, LinkedIn, X, and YouTube.",
+      "A clear content direction tailored to your audience, industry, and business goals.",
   },
   {
-    title: "Growth focused execution",
+    title: "Content Creation & Scheduling",
     description:
-      "Community support and basic analytics keep your presence improving.",
+      "Graphics, captions, and posts created and scheduled consistently to keep your platforms active and engaging.",
+  },
+  {
+    title: "Account Management",
+    description:
+      "Regular monitoring, engagement, and updates so your social presence stays relevant and responsive.",
+  },
+  {
+    title: "Performance Reporting",
+    description:
+      "Clear, straightforward reporting on how your accounts are growing and what's working.",
   },
 ];
 
@@ -64,12 +66,6 @@ const pricing = [
   },
 ];
 
-const addOns = [
-  "YouTube + Multi Platform Growth Pack: From ₦180,000 per month",
-  "Full YT publishing + repurposed clips to TikTok/IG Reels/Facebook",
-  "Thumbnails, community posts, and basic strategy",
-];
-
 const showcaseCards = [
   {
     title: "Platform branding",
@@ -98,14 +94,21 @@ export default function SocialMediaPage() {
       <ServicePageLayout
         iconGradient="from-blue-50 via-cyan-50 to-white"
         badge="Social Media Management"
-        title="Consistent social presence across all platforms."
-        description="We handle setup, branding, and content delivery so your business stays visible, credible, and organized online."
+        title="Social media that engages and grows"
+        description="Strategic content and management that builds your audience"
         heroImage="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80"
         heroImageAlt="Social media content planning"
         deliverables={deliverables}
-        highlights={highlights}
+        whatWeDo="We set up, brand, and manage your social media platforms so your business maintains a professional, consistent presence online — without you having to think about it. This includes Facebook, Instagram, X (Twitter), LinkedIn, TikTok, YouTube, and WhatsApp Business, with support for other platforms where relevant to your audience."
+        whoThisIsFor={[
+          "Businesses with no social media presence that need a proper setup",
+          "Companies with inactive or inconsistent accounts that need to be revived",
+          "Brands that want professionally managed content without hiring in-house",
+          "Organizations that understand the value of social media but don't have the time to manage it",
+        ]}
         pricing={pricing}
-        addOns={addOns}
+        whyItMatters="An inactive or poorly managed social media account sends the wrong message. Clients and partners check your socials — and what they find either builds confidence or raises doubt. A well-managed presence builds credibility, keeps your audience engaged, and creates a consistent pipeline of visibility for your business."
+        whyZenithMultipurposes="We understand both the creative and strategic sides of social media. We don't just post content — we build a presence that reflects your brand accurately and consistently across every platform."
         showcaseTitle="Social media showcase"
         showcaseDescription="A visual sample of the kind of branded content, covers, and campaign assets we build for active social platforms."
         showcaseCards={showcaseCards}

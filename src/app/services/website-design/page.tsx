@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "Website Design & Building | Zenith Multipurposes",
@@ -10,27 +10,30 @@ export const metadata: Metadata = {
 };
 
 const deliverables = [
-  "Business websites and landing pages",
-  "Home, About, Services, Contact, Gallery or Blog pages",
-  "Mobile responsive layouts",
-  "Basic SEO structure and analytics setup",
-];
-
-const highlights = [
   {
-    title: "Lead focused layout",
+    title: "Custom Website Design",
     description:
-      "Clear structure that guides visitors toward inquiries and calls to action.",
+      "A professionally designed website built around your brand identity, audience, and business objectives.",
   },
   {
-    title: "Mobile first delivery",
+    title: "Mobile & Desktop Optimization",
     description:
-      "Responsive builds that look sharp on phones, tablets, and desktops.",
+      "Your site will look and function perfectly across all devices — phones, tablets, and desktops.",
   },
   {
-    title: "Professional credibility",
+    title: "Contact & Inquiry Setup",
     description:
-      "Designs that reflect the quality and seriousness of your business.",
+      "Forms, call-to-action buttons, and contact integrations set up to convert visitors into leads.",
+  },
+  {
+    title: "Basic SEO Setup",
+    description:
+      "Page titles, meta descriptions, and site structure configured to help your business get found on search engines.",
+  },
+  {
+    title: "Handover & Walkthrough",
+    description:
+      "We walk you through your site so you understand how to manage it after delivery.",
   },
 ];
 
@@ -55,12 +58,6 @@ const pricing = [
   },
 ];
 
-const addOns = [
-  "Extra page: ₦20,000 – ₦30,000 per page",
-  "Basic SEO + Analytics setup: ₦50,000 – ₦80,000",
-  "Maintenance (updates, monitoring): from ₦40,000 per month",
-];
-
 export default function WebsiteDesignPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
@@ -68,14 +65,21 @@ export default function WebsiteDesignPage() {
       <ServicePageLayout
         iconGradient="from-green-50 via-emerald-50 to-white"
         badge="Website Design & Building"
-        title="Websites that build trust and drive inquiries."
-        description="From landing pages to full corporate sites, we design clean, mobile friendly websites that represent your business well."
+        title="Websites built to convert and inspire"
+        description="Fast, beautiful web solutions designed with your business goals in mind"
         heroImage="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=1200&q=80"
         heroImageAlt="Website design workspace"
         deliverables={deliverables}
-        highlights={highlights}
         pricing={pricing}
-        addOns={addOns}
+        whatWeDo="We design and build clean, professional websites that make your business easy to find, easy to trust, and easy to contact. Every site we build is tailored to your business goals — not recycled from a template and handed over."
+        whoThisIsFor={[
+          "Businesses with no website that need to establish an online presence",
+          "Companies with outdated websites that no longer reflect their brand",
+          "Entrepreneurs launching a new product, service, or venture",
+          "Organizations that need a functional, professional site without the technical headache",
+        ]}
+        whyItMatters="Most people will check your website before they ever contact you. A poorly designed or outdated site sends the wrong signal — it tells potential clients you're not serious. A clean, professional website does the opposite. It builds credibility instantly and turns visitors into inquiries."
+        whyZenithMultipurposes="Since 2020, we've built websites for businesses of all sizes — from single-page sites to multi-page corporate platforms. We focus on sites that work first and look great second, with every design built around your specific business goals."
         pastWorksTitle="Website and landing page samples."
         pastWorksDescription="Request a curated set of web builds and layouts we have delivered for other businesses."
         pastWorksLinks={[

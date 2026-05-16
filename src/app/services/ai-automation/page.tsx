@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "AI Automation Setup | Zenith Multipurposes",
@@ -10,27 +10,30 @@ export const metadata: Metadata = {
 };
 
 const deliverables = [
-  "AI strategy and discovery for customer support and marketing",
-  "Workflow automation with tools like WhatsApp, email, and spreadsheets",
-  "Lead capture and reporting setup",
-  "Documentation and basic training",
-];
-
-const highlights = [
   {
-    title: "Faster responses",
+    title: "Workflow Automation",
     description:
-      "Automate lead capture and customer replies without losing quality.",
+      "We identify repetitive tasks in your operations and build automated systems that handle them — saving your team time and reducing human error.",
   },
   {
-    title: "Operational clarity",
+    title: "AI-Powered Communication Systems",
     description:
-      "Streamlined workflows that reduce manual tasks and errors.",
+      "Automated responses, follow-up sequences, and communication workflows that keep your business responsive around the clock.",
   },
   {
-    title: "Scalable systems",
+    title: "Process Integration",
     description:
-      "Automation built to grow with your business needs.",
+      "We connect your existing tools and platforms into a unified, automated workflow — so your systems talk to each other without manual input.",
+  },
+  {
+    title: "Custom Automation Builds",
+    description:
+      "Every business runs differently. We build automation solutions specific to your operations, not generic setups that only partially fit.",
+  },
+  {
+    title: "Team Onboarding & Support",
+    description:
+      "We train your team on how to use and manage the systems we build — so you stay in control after handover.",
   },
 ];
 
@@ -65,26 +68,34 @@ export default function AiAutomationPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f6f5f1] text-[#141414]">
       <Navbar variant="solid" />
-      <ServicePageLayout
-        iconGradient="from-yellow-50 via-amber-50 to-white"
-        badge="AI Automation Setup"
-        title="Smart systems that simplify communication and operations."
-        description="We design automation workflows that reduce manual tasks, capture leads faster, and keep your team focused on growth."
-        heroImage="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&q=80"
-        heroImageAlt="Automation workflow dashboard"
-        deliverables={deliverables}
-        highlights={highlights}
-        pricing={pricing}
-        pastWorksTitle="Workflow automation references and examples."
-        pastWorksDescription="Request tailored automation samples based on your tools and business process."
-        pastWorksLinks={[
-          {
-            label: "View Past Works",
-            href: "mailto:Dzmultipurposes@gmail.com?subject=AI%20Automation%20Past%20Works%20Request",
-            type: "email",
-          },
-        ]}
-      />
+        <ServicePageLayout
+          iconGradient="from-yellow-50 via-amber-50 to-white"
+          badge="AI Automation Setup"
+          title="Automation that simplifies your operations"
+          description="Smart systems designed to save time, reduce costs, and boost efficiency"
+          heroImage="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&q=80"
+          heroImageAlt="Automation workflow dashboard"
+          whatWeDo="We design and integrate AI-powered automation systems into your business operations — reducing manual work, speeding up communication, and improving efficiency across your team. We make automation practical, accessible, and tailored specifically to how your business runs."
+          whoThisIsFor={[
+            "Corporations and mid-sized businesses with repetitive operational tasks eating into productivity",
+            "Companies looking to modernize their workflows without overhauling their entire structure",
+            "Organizations that want faster response systems for customer communication and internal processes",
+            "Business owners who want to scale operations without proportionally scaling their team size",
+          ]}
+          deliverables={deliverables}
+          pricing={pricing}
+          whyItMatters="Time is your most valuable resource. Every hour your team spends on repetitive manual tasks is an hour not spent on growth. AI automation doesn't replace your people — it frees them to focus on work that actually moves your business forward. Companies that adopt smart systems early operate faster, respond better, and scale more efficiently than those that don't."
+          whyZenithMultipurposes="We approach automation from a business-first perspective — not a purely technical one. We understand operations, communication, and workflow, which means the systems we build are practical, functional, and built around how your business actually works."
+          pastWorksTitle="Workflow automation references and examples."
+          pastWorksDescription="Request tailored automation samples based on your tools and business process."
+          pastWorksLinks={[
+            {
+              label: "View Past Works",
+              href: "mailto:Dzmultipurposes@gmail.com?subject=AI%20Automation%20Past%20Works%20Request",
+              type: "email",
+            },
+          ]}
+        />
       <Footer />
     </div>
   );

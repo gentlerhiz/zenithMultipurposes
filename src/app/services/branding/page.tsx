@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "Branding & Rebranding | Zenith Multipurposes",
@@ -10,28 +10,30 @@ export const metadata: Metadata = {
 };
 
 const deliverables = [
-  "Logo systems and brand identity design",
-  "Company profile creation and layout",
-  "Product or service catalogues",
-  "Brochure and flyer templates",
-  "Business cards and stationery",
-];
-
-const highlights = [
   {
-    title: "Brand system clarity",
+    title: "Brand Identity Design",
     description:
-      "Consistent colors, typography, and layouts that make your brand easy to recognize.",
+      "Logo, color palette, typography, and visual guidelines that define how your brand looks and feels across every platform.",
   },
   {
-    title: "Executive ready documents",
+    title: "Company Profile & Catalogue",
     description:
-      "Profiles, catalogues, and brochures designed for meetings and proposals.",
+      "Professionally written and designed company profiles and product catalogues that represent your business at its best.",
   },
   {
-    title: "Launch support assets",
+    title: "Brand Style Guide",
     description:
-      "Rollout materials that keep your rebrand organized across every channel.",
+      "A complete reference document so your brand stays consistent — whether it's used by your team, a printer, or a new contractor.",
+  },
+  {
+    title: "Rebranding Strategy",
+    description:
+      "If your current brand isn't working, we audit what exists, identify the gaps, and rebuild with a clear direction.",
+  },
+  {
+    title: "Stationery & Corporate Materials",
+    description:
+      "Business cards, letterheads, email signatures, and branded templates designed to complete your professional identity.",
   },
 ];
 
@@ -71,17 +73,6 @@ const pricing = [
   },
 ];
 
-const standalone = [
-  "Logo Design Only (1 main + 2 variations): ₦45,000",
-  "Company Profile Design Only (up to 20 pages): ₦80,000",
-  "Product / Service Catalogue Design Only (up to 30 pages): ₦95,000",
-  "Brochure Design Only (trifold or multi-page): ₦35,000",
-  "Business Card Design Only: ₦15,000",
-  "Single Flyer / Poster Design: ₦12,000",
-  "Social Media Post Template (per design): ₦8,000",
-  "Event / Campaign Pack (5 related designs): ₦60,000",
-];
-
 const showcaseCards = [
   {
     title: "Identity systems",
@@ -110,14 +101,12 @@ export default function BrandingPage() {
       <ServicePageLayout
         iconGradient="from-purple-50 via-pink-50 to-white"
         badge="Branding & Rebranding"
-        title="Your brand is the first thing people judge. Make sure it says the right thing."
-        description=""
-        heroImage="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200&q=80"
+        title="Build a brand identity that stands out"
+        description="Professional branding that creates lasting impressions and drives recognition"
+        heroImage="https://images.unsplash.com/photo-1654481414716-2f4ab5fe0fbe?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         heroImageAlt="Branding materials"
         deliverables={deliverables}
-        highlights={highlights}
         pricing={pricing}
-        addOns={standalone}
         showcaseTitle="Branding showcase"
         showcaseDescription="A curated look at recent branding work, identity assets, and visual rollouts from real projects."
         showcaseCards={showcaseCards}
@@ -140,6 +129,15 @@ export default function BrandingPage() {
             type: "email",
           },
         ]}
+        whatWeDo="At Zenith Multipurposes, we build and rebuild brand identities that are clear, consistent, and built to last. Whether you're launching a new business or an existing brand that no longer reflects where you're headed — we give you the visuals, materials, and identity system to show up with authority."
+          whoThisIsFor={[
+            "Startups that need a brand identity built from the ground up",
+            "Established businesses whose current brand feels outdated or inconsistent",
+            "Companies expanding into new markets and need a stronger corporate image",
+            "Entrepreneurs who want their business to look as serious as it is",
+          ]}
+          whyItMatters="A weak brand costs you clients before you even get the chance to speak to them. A strong brand does the opposite — it builds trust instantly, communicates professionalism, and makes every other part of your marketing work harder. Businesses that invest in proper branding close more deals, retain more clients, and grow faster."
+          whyZenithMultipurposes="We've been building strong brand identities since 2020 for startups, SMEs, and established companies. Our process blends strategy with creativity to ensure your brand isn't just beautiful — it's built to last and actually reflect who you are."
       />
       <Footer />
     </div>

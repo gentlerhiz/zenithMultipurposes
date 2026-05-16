@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "Bulk Graphics Design | Zenith Multipurposes",
@@ -10,27 +10,25 @@ export const metadata: Metadata = {
 };
 
 const deliverables = [
-  "Banners, posters, flyers, and corporate graphics",
-  "Wedding invites, event packs, and conference materials",
-  "Seasonal greeting sets for campaigns",
-  "Print ready files for vendors",
-];
-
-const highlights = [
   {
-    title: "Print ready quality",
+    title: "Print-Ready Graphics",
     description:
-      "Files are prepared for clear, professional printing results.",
+      "Banners, posters, flyers, brochures, event programs, wedding invites, meeting materials, and any other printable format — designed to exact print specifications.",
   },
   {
-    title: "Event focused packs",
+    title: "Digital Graphics",
     description:
-      "Coordinated designs for conferences, weddings, and corporate events.",
+      "Social media graphics, email headers, digital ads, presentation slides, and web-ready visuals optimized for every platform.",
   },
   {
-    title: "Brand consistency",
+    title: "Corporate & Event Materials",
     description:
-      "Every graphic matches your brand colors, typography, and tone.",
+      "Branded materials for conferences, product launches, corporate events, and internal communications.",
+  },
+  {
+    title: "Bulk Turnaround",
+    description:
+      "We are structured to handle high-volume orders efficiently — multiple designs, multiple formats, tight deadlines.",
   },
 ];
 
@@ -54,11 +52,6 @@ const pricing = [
       "Branded New Year or festive creatives for email, WhatsApp, socials, and print",
     ],
   },
-];
-
-const addOns = [
-  "Corporate Graphics Bundle (company profile + catalogue + posters): From ₦120,000 (custom)",
-  "For larger corporate campaigns or full document sets",
 ];
 
 const showcaseCards = [
@@ -89,14 +82,12 @@ export default function BulkGraphicsPage() {
       <ServicePageLayout
         iconGradient="from-orange-50 via-red-50 to-white"
         badge="Bulk Graphics Design"
-        title="Print ready designs for campaigns, events, and corporate needs."
-        description="We design professional graphics that keep your business consistent across print and digital touchpoints."
+        title="Professional graphics at scale"
+        description="High-quality design assets that elevate your brand across all platforms"
         heroImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80"
         heroImageAlt="Designing print graphics"
         deliverables={deliverables}
-        highlights={highlights}
         pricing={pricing}
-        addOns={addOns}
         showcaseTitle="Bulk graphics showcase"
         showcaseDescription="A mixed gallery of previous work samples from print, promotional, and campaign-focused graphic design projects."
         showcaseCards={showcaseCards}
@@ -109,6 +100,15 @@ export default function BulkGraphicsPage() {
             type: "email",
           },
         ]}
+        whatWeDo="We produce large volumes of print-ready and digital graphics for businesses that need consistent, professional visuals across multiple formats — fast. From corporate events to marketing campaigns, we handle the design load so your team doesn't have to."
+        whoThisIsFor={[
+          "Businesses running promotions, campaigns, or events that need multiple designs",
+          "Companies that need branded materials produced regularly and consistently",
+          "Organizations requiring both print and digital assets from a single provider",
+          "Anyone who needs professional design work in volume without compromising quality",
+        ]}
+        whyItMatters="Inconsistent visuals damage your brand. When your graphics look different across every platform and material, it signals a lack of professionalism. Consistent, high-quality design across all your materials builds recognition, trust, and a stronger brand presence everywhere your business shows up."
+        whyZenithMultipurposes="We've handled bulk design projects for businesses of all sizes since 2020. Our process is built for volume — without the drop in quality that usually comes with it."
       />
       <Footer />
     </div>
