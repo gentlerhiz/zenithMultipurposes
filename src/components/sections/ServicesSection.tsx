@@ -9,7 +9,7 @@ import { fadeUp, fadeLeft, staggerContainer, staggerItem } from "@/lib/motion";
 
 const services = [
   {
-    title: "Website Design and Setup",
+    title: "Website Design And App Development",
     description:
       "We build clean, professional websites that make your business easy to find, trust, and contact.",
     cta: "View Details",

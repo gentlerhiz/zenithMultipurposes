@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ServicePageLayout from "../../../components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Website Design & Building | Zenith Multipurposes",
+  title: "Website Design And App Development | Zenith Multipurposes",
   description:
     "Business websites, landing pages, and corporate site builds that attract inquiries.",
 };
@@ -64,7 +64,7 @@ export default function WebsiteDesignPage() {
       <Navbar variant="solid" />
       <ServicePageLayout
         iconGradient="from-green-50 via-emerald-50 to-white"
-        badge="Website Design & Building"
+        badge="Website Design And App Development"
         title="Websites built to convert and inspire"
         description="Fast, beautiful web solutions designed with your business goals in mind"
         heroImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

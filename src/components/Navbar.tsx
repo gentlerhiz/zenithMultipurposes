@@ -10,16 +10,17 @@ import { ChevronDown, X, Menu } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
+
+const faqLink = { label: "FAQ", href: "/faq" };
 
 const services = [
   { label: "Branding & Rebranding", href: "/services/branding" },
   { label: "Social Media Management", href: "/services/social-media" },
   { label: "Bulk Graphics Design", href: "/services/bulk-graphics" },
   { label: "AI Automation Setup", href: "/services/ai-automation" },
-  { label: "Website Design & Building", href: "/services/website-design" },
+  { label: "Website Design And App Development", href: "/services/website-design" },
 ];
 
 const navEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -153,6 +154,22 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
                 )}
               </AnimatePresence>
             </div>
+
+            <Link
+              href={faqLink.href}
+              className={`relative px-3.5 py-2 text-[13px] font-medium transition-colors duration-200 after:absolute after:bottom-1 after:left-3.5 after:h-px after:w-[calc(100%-1.75rem)] after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:ease-out after:content-[''] hover:after:scale-x-100 ${
+                isActive(faqLink.href)
+                  ? solid
+                    ? "text-text-primary font-semibold after:scale-x-100 after:bg-dark-green"
+                    : "text-white font-semibold after:scale-x-100 after:bg-white"
+                  : solid
+                    ? "text-text-secondary after:bg-dark-green hover:text-text-primary"
+                    : "text-white/85 after:bg-white hover:text-white"
+              }`}
+              aria-current={isActive(faqLink.href) ? "page" : undefined}
+            >
+              {faqLink.label}
+            </Link>
           </div>
 
           {/* Desktop CTA */}
@@ -248,6 +265,19 @@ export default function Navbar({ variant = "transparent" }: NavbarProps) {
                     {s.label}
                   </Link>
                 ))}
+
+                <Link
+                  href={faqLink.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-xl px-4 py-3 text-[15px] font-medium transition ${
+                    isActive(faqLink.href)
+                      ? "bg-neon-green/10 font-semibold text-dark-green"
+                      : "text-text-secondary hover:bg-neon-green/10 hover:text-dark-green"
+                  }`}
+                  aria-current={isActive(faqLink.href) ? "page" : undefined}
+                >
+                  {faqLink.label}
+                </Link>
               </div>
 
               {/* Drawer CTA */}

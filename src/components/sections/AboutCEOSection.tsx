@@ -9,7 +9,7 @@ const leaders = [
   {
     name: "Sijuade Henry Oluwatimilehin",
     title: "Founder and Chief Executive Officer",
-    image: "/ceoimage.png",
+    image: "/ceoImage.png",
     alt: "Sijuade Henry Oluwatimilehin",
     bio:
       "Sijuade Henry Oluwatimilehin is the Founder and Chief Executive Officer of Bornstellar Limited, the parent company behind Zenith Multipurposes. His vision is simple — build businesses that solve real problems and create lasting value. Zenith Multipurposes is a direct product of that vision, designed to give brands the creative support, strategy, and systems they need to grow with confidence.",

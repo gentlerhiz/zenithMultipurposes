@@ -63,8 +63,8 @@ export default function GetAQuoteFormSection() {
                 <option value="" disabled className="text-[#141414]">
                   Choose a service
                 </option>
-                <option value="Website Design and Setup" className="text-[#141414]">
-                  Website Design and Setup
+                <option value="Website Design And App Development" className="text-[#141414]">
+                  Website Design And App Development
                 </option>
                 <option value="Bulk Graphics Design" className="text-[#141414]">
                   Bulk Graphics Design

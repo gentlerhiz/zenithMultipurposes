@@ -33,7 +33,7 @@ export default function ContactPage() {
                   Contact
                 </p>
                 <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-                  Let's plan your next brand move together.
+                  Let&apos;s plan your next brand move together.
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">
                   Share your goals and we will recommend the right service mix for
@@ -121,7 +121,7 @@ export default function ContactPage() {
                       <option value="Social Media">Social Media Management</option>
                       <option value="Bulk Graphics">Bulk Graphics Design</option>
                       <option value="AI Automation">AI Automation Setup</option>
-                      <option value="Website">Website Design and Build</option>
+                      <option value="Website">Website Design And App Development</option>
                     </select>
                   </label>
                   <label className="grid gap-2 text-sm text-white/70">

@@ -21,7 +21,7 @@ const requestReasons = [
 
 const services = [
   {
-    title: "Website Design and Setup",
+    title: "Website Design And App Development",
     description:
       "Business websites, landing pages, redesigns, and website setup for brands that need a stronger online presence.",
   },
