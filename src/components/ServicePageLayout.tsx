@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { CheckCircle2, ExternalLink, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeLeft, fadeRight, staggerContainer } from "../lib/motion";
@@ -22,6 +23,7 @@ interface ServicePageLayoutProps {
 
   pricing: Array<{ name: string; price: string; items: string[] }>;
   addOns?: string[];
+  afterPricingContent?: ReactNode;
 
   showcaseTitle?: string;
   showcaseDescription?: string;
@@ -52,6 +54,7 @@ export default function ServicePageLayout({
   pastWorksTitle,
   pastWorksDescription,
   pastWorksLinks,
+  afterPricingContent,
   whatWeDo,
   whoThisIsFor,
   whyItMatters,
@@ -81,7 +84,7 @@ export default function ServicePageLayout({
               </div>
             </div>
             <div className="relative">
-              <div className="relative aspect-square overflow-hidden border border-black/10 bg-white shadow-2xl">
+              <div className={`relative aspect-square overflow-hidden border border-black/10 bg-linear-to-br ${iconGradient} shadow-2xl`}>
                 <Image src={heroImage} alt={heroImageAlt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
               </div>
@@ -185,6 +188,23 @@ export default function ServicePageLayout({
         </div>
       </section>
 
+
+      {/* Showcase (carousel) */}
+      {showcaseCards && showcaseCards.length > 0 && (
+        <section className="bg-off-white py-12 md:py-20">
+          <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+            {/* {(showcaseTitle || showcaseDescription) && (
+              <div className="mb-10 max-w-3xl">
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Showcase</p>
+                {showcaseTitle && <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">{showcaseTitle}</h2>}
+                {showcaseDescription && <p className="mt-4 text-base leading-7 text-[#6B7280]">{showcaseDescription}</p>}
+              </div>
+            )} */}
+            <WorkShowcaseSection showcaseCards={showcaseCards} />
+          </div>
+        </section>
+      )}
+
       {/* Pricing */}
       <section id="pricing" className="bg-off-white py-20">
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
@@ -212,10 +232,9 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* Showcase (carousel) */}
-      {showcaseCards && showcaseCards.length > 0 && (
-        <WorkShowcaseSection showcaseCards={showcaseCards} />
-      )}
+      {afterPricingContent}
+
+
 
       
 

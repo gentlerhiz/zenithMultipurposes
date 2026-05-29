@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageLayout from "../../../components/ServicePageLayout";
+import { getPricingForSlug } from "@/lib/pricingData";
+import TermsTrigger from "@/components/TermsTrigger";
 
 export const metadata: Metadata = {
   title: "Website Design And App Development | Zenith Multipurposes",
@@ -37,26 +39,91 @@ const deliverables = [
   },
 ];
 
-const pricing = [
+const pricing = getPricingForSlug("website-design");
+const appPricing = getPricingForSlug("app-development");
+
+const showcaseCards = [
   {
-    name: "One Page / Landing Website",
-    price: "₦90,000 – ₦130,000",
-    items: ["For campaigns, events, or personal brands"],
+    title: "Business website builds",
+    description: "Recent website layouts and page structures created for service businesses and brands.",
+    images: ["/website/1.jpeg", "/website/2.jpeg", "/website/3.jpeg"],
   },
   {
-    name: "Standard Business Website (3–5 pages)",
-    price: "₦180,000 – ₦280,000",
-    items: [
-      "Home, About, Services, Contact, basic gallery or blog",
-      "Mobile responsive",
-    ],
+    title: "Landing pages and conversion layouts",
+    description: "Focused pages designed to drive bookings, inquiries, and campaign responses.",
+    images: ["/website/4.jpeg", "/website/5.jpeg", "/website/6.jpeg"],
   },
   {
-    name: "Premium Business / Corporate Website (6–10+ pages)",
-    price: "From ₦300,000",
-    items: ["Extra service pages, team, case studies, advanced layouts"],
+    title: "Corporate and content sections",
+    description: "Page compositions that show how the website system holds together across sections.",
+    images: ["/website/7.jpeg", "/website/8.jpeg", "/website/9.jpeg"],
   },
 ];
+
+const addOns = [
+  { title: "Language Translation", price: "₦40,000" },
+  { title: "Dark / Light Mode Toggle", price: "₦25,000" },
+  { title: "WhatsApp / Live Chat Integration", price: "₦15,000" },
+  { title: "Blog Setup", price: "₦50,000" },
+  { title: "Booking / Reservation Feature", price: "₦80,000" },
+  { title: "Payment Gateway Integration", price: "₦100,000" },
+  { title: "User Login / Dashboard", price: "₦150,000" },
+  { title: "Newsletter Integration", price: "₦10,000" },
+  { title: "Analytics Setup", price: "₦25,000" },
+  { title: "Advanced SEO Setup", price: "₦60,000" },
+  { title: "Extra Page", price: "₦5,000" },
+  { title: "Premium Plugin / Tool Setup", price: "₦70,000/year" },
+];
+
+const afterPricingContent = (
+  <section className="bg-white py-20">
+    <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+      <div className="max-w-3xl">
+        <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">App Development</p>
+        <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">App Development Packages</h2>
+        <p className="mt-4 text-base leading-7 text-[#6B7280]">Mobile and web apps built to solve specific business problems.</p>
+      </div>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {appPricing.map((tier, index) => (
+          <article key={tier.name} className={`group relative flex flex-col overflow-hidden border ${index === 1 ? "border-dark-green bg-white shadow-2xl lg:-mt-4 lg:scale-105" : "border-black/10 bg-white shadow-lg"}`}>
+            <div className="p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-dark-green/70">{tier.name}</p>
+              <h3 className="mt-3 text-lg font-bold text-text-primary">{tier.name}</h3>
+              <p className="mt-4 text-3xl font-bold text-dark-green">{tier.price}</p>
+              <ul className="mt-6 space-y-3">
+                {tier.items.map((it) => (
+                  <li key={it} className="flex items-start gap-3 text-sm text-text-secondary"><span className="mt-0.5 h-5 w-5 shrink-0 text-dark-green" />{it}</li>
+                ))}
+              </ul>
+              <a href="#contact" className={`mt-8 block rounded-full py-3 text-center text-sm font-semibold ${index === 1 ? "bg-neon-green text-dark-green" : "border-2 border-dark-green/20 text-dark-green"}`}>Get Started</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-12 rounded-[28px] border border-dark-green/10 bg-off-white p-6 md:p-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Add-Ons</p>
+          <h3 className="mt-3 text-2xl font-bold text-text-primary md:text-3xl">Optional Add-Ons</h3>
+          <p className="mt-4 text-base leading-7 text-[#6B7280]">Enhance your website or app with these additional services.</p>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+          {addOns.map((a) => (
+            <div key={a.title} className="flex items-center justify-between gap-4 rounded-lg border border-dark-green/10 bg-white p-4">
+              <div>
+                <p className="text-sm font-semibold text-text-primary">{a.title}</p>
+              </div>
+              <p className="text-sm font-bold text-dark-green">{a.price}</p>
+            </div>
+          ))}
+        </div>
+        <TermsTrigger />
+      </div>
+    </div>
+  </section>
+);
 
 export default function WebsiteDesignPage() {
   return (
@@ -71,6 +138,10 @@ export default function WebsiteDesignPage() {
         heroImageAlt="Website design workspace"
         deliverables={deliverables}
         pricing={pricing}
+        showcaseTitle="Website design showcase"
+        showcaseDescription="A curated look at website layouts, landing pages, and section compositions built from real projects."
+        showcaseCards={showcaseCards}
+        afterPricingContent={afterPricingContent}
         whatWeDo="We design and build clean, professional websites that make your business easy to find, easy to trust, and easy to contact. Every site we build is tailored to your business goals — not recycled from a template and handed over."
         whoThisIsFor={[
           "Businesses with no website that need to establish an online presence",

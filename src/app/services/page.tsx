@@ -66,7 +66,7 @@ export default function ServicesPage() {
               <div className="grid gap-4">
                 <div className="relative aspect-4/3 overflow-hidden border border-white/10 bg-white/5">
                   <Image
-                    src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80"
+                    src="/Branding/b15.jpeg"
                     alt="Team reviewing service deliverables"
                     fill
                     className="object-cover"

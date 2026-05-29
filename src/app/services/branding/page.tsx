@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageLayout from "../../../components/ServicePageLayout";
+import { getPricingForSlug } from "@/lib/pricingData";
 
 export const metadata: Metadata = {
   title: "Branding & Rebranding | Zenith Multipurposes",
@@ -37,41 +38,7 @@ const deliverables = [
   },
 ];
 
-const pricing = [
-  {
-    name: "Brand Starter Pack – for micro and small businesses",
-    price: "₦50,200 – ₦80,000",
-    items: [
-      "Simple logo (1 main + 5 variations)",
-      "Basic brand colors & fonts guide",
-      "One–two page company profile",
-      "Business card design",
-      "4 flyer designs",
-    ],
-  },
-  {
-    name: "Full Business Branding (Top–to–Bottom) – for serious SMEs",
-    price: "₦150,000 – ₦250,000",
-    items: [
-      "Logo suite (primary logo, icon, monochrome + 4 variations)",
-      "Full company profile (up to 30 pages)",
-      "Product or service catalogue design (where applicable)",
-      "Brochure template design",
-      "Business card set (management and team)",
-      "3–5 flyer/poster templates for campaigns or offers",
-    ],
-  },
-  {
-    name: "Corporate Rebranding Pack – for established companies",
-    price: "From ₦300,000 (custom)",
-    items: [
-      "Brand audit and review of existing identity and materials",
-      "New brand identity (updated logo system, colors, typography, and visual direction)",
-      "New, expanded company profile and updated catalogue/brochures",
-      "Rollout materials: stationery, presentation templates, social media branding, email signatures, and launch graphics",
-    ],
-  },
-];
+const pricing = getPricingForSlug("branding");
 
 const showcaseCards = [
   {
@@ -127,7 +94,7 @@ export default function BrandingPage() {
         badge="Branding & Rebranding"
         title="Build a brand identity that stands out"
         description="Professional branding that creates lasting impressions and drives recognition"
-        heroImage="https://images.unsplash.com/photo-1654481414716-2f4ab5fe0fbe?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        heroImage="/Branding/b29.jpeg"
         heroImageAlt="Branding materials"
         deliverables={deliverables}
         pricing={pricing}

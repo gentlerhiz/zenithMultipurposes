@@ -85,6 +85,7 @@ function Slider({ images }: { images: string[] }) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 33vw"
             priority={current === 0}
+            unoptimized
           />
         </motion.div>
       </AnimatePresence>

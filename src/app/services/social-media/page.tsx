@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageLayout from "../../../components/ServicePageLayout";
+import { getPricingForSlug } from "@/lib/pricingData";
 
 export const metadata: Metadata = {
   title: "Social Media Management | Zenith Multipurposes",
@@ -37,34 +38,7 @@ const deliverables = [
   },
 ];
 
-const pricing = [
-  {
-    name: "Social Setup Only (All Platforms) – one time",
-    price: "₦40,000 – ₦60,000",
-    items: [
-      "Setup or clean up of IG, FB, TikTok, LinkedIn, X, and YT branding",
-      "Bios, profile optimization, highlight covers, banners, cover graphics",
-    ],
-  },
-  {
-    name: "Monthly Social Media Lite – for small local businesses",
-    price: "₦70,000 – ₦100,000 per month",
-    items: [
-      "Up to 10 posts per month across 1–2 platforms",
-      "Graphics + captions",
-      "Basic DM/comment monitoring",
-    ],
-  },
-  {
-    name: "YouTube Channel Operations (Basic)",
-    price: "₦100,000 – ₦150,000 per month",
-    items: [
-      "Upload management, descriptions, tags",
-      "8–12 thumbnails per month",
-      "Basic title & SEO optimization",
-    ],
-  },
-];
+const pricing = getPricingForSlug("social-media");
 
 const showcaseCards = [
   {

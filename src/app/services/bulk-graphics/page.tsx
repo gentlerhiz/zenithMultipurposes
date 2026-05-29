@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageLayout from "../../../components/ServicePageLayout";
+import { getPricingForSlug } from "@/lib/pricingData";
 
 export const metadata: Metadata = {
   title: "Bulk Graphics Design | Zenith Multipurposes",
@@ -32,27 +33,149 @@ const deliverables = [
   },
 ];
 
-const pricing = [
+const pricing = getPricingForSlug("bulk-graphics");
+
+const coreGraphicDesignServices = [
   {
-    name: "Single Design (banner, poster, flyer, invite, etc.)",
-    price: "₦8,000 – ₦15,000 per design",
-    items: ["For basic corporate or event graphics"],
+    title: "Banner / Billboard Design",
+    price: "N15,000 – N25,000",
+    note: "High-impact outdoor or promotional visuals sized to your brief.",
   },
   {
-    name: "Event Pack (wedding, conference, church program, political event)",
-    price: "₦40,000 – ₦70,000 (4–7 designs)",
-    items: [
-      "Main banner, social media flyers, countdown posts, program cover, and more",
-    ],
+    title: "Brochure Design",
+    price: "N10,000 – N15,000 per page",
+    note: "Clean, structured brochure layouts for print or PDF use.",
   },
   {
-    name: "Corporate Seasonal Pack (New Year / festive greetings)",
-    price: "₦60,000 – ₦100,000 per season",
-    items: [
-      "Branded New Year or festive creatives for email, WhatsApp, socials, and print",
-    ],
+    title: "Company Profile Design",
+    price: "N40,000",
+    note: "Professional profile design for established business presentations.",
+  },
+  {
+    title: "Company Profile Design + Writing",
+    price: "N50,000",
+    note: "Design plus copywriting for a complete profile package.",
+  },
+  {
+    title: "Business Proposal Design",
+    price: "N20,000",
+    note: "Polished proposal formatting for client or investor submissions.",
+  },
+  {
+    title: "Business Proposal Design + Writing",
+    price: "N40,000 – N60,000",
+    note: "Full proposal support with writing and presentation design.",
+  },
+  {
+    title: "PowerPoint / Pitch Deck Design",
+    price: "N7,000 – N12,000 per slide",
+    note: "Investor-ready or sales-focused slide design with clean structure.",
+  },
+  {
+    title: "Book Cover Design (Front & Back)",
+    price: "N15,000 – N25,000",
+    note: "Front and back cover layout for print or digital publishing.",
+  },
+  {
+    title: "Brand Identity Package (Logo + Brand Assets)",
+    price: "N50,000 – N120,000",
+    note: "A focused identity system with supporting brand assets.",
   },
 ];
+
+const optionalAddOnServices = [
+  {
+    title: "Email Template Design",
+    price: "N15,000 – N25,000",
+    note: "Reusable email layouts for announcements or campaigns.",
+  },
+  {
+    title: "Corporate Document Design",
+    price: "N10,000 – N20,000",
+    note: "Letterheads, reports, and other business documents.",
+  },
+  {
+    title: "Menu / Price List Design",
+    price: "N10,000 – N15,000",
+    note: "Best suited for established brands that need a premium menu or list layout.",
+  },
+];
+
+const afterPricingContent = (
+  <section className="bg-white py-20">
+    <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+      <div className="max-w-3xl">
+        <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Extended Options</p>
+        <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">Core Graphic Design Services</h2>
+        <p className="mt-4 text-base leading-7 text-[#6B7280]">
+          Standalone design services for businesses that need focused support beyond bulk campaign work.
+        </p>
+      </div>
+
+      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {coreGraphicDesignServices.map((service, index) => (
+          <article
+            key={service.title}
+            className={`group flex h-full flex-col border p-6 shadow-[0_16px_36px_rgba(17,17,17,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(17,17,17,0.08)] ${
+              index % 3 === 0
+                ? "border-dark-green/10 bg-[#FCFBF7]"
+                : index % 3 === 1
+                  ? "border-dark-green/10 bg-white"
+                  : "border-dark-green/10 bg-[#F7F8F5]"
+            }`}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-dark-green/70">Standalone</p>
+                <h3 className="mt-3 text-lg font-semibold leading-tight text-text-primary">{service.title}</h3>
+              </div>
+              <span className="rounded-full bg-neon-green/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-dark-green">
+                Mini
+              </span>
+            </div>
+
+            <p className="mt-4 text-sm leading-7 text-text-secondary">{service.note}</p>
+
+            <p className="mt-5 text-xl font-bold tracking-[-0.03em] text-dark-green">{service.price}</p>
+
+            <div className="mt-auto pt-6">
+              <a
+                href="#contact"
+                className="inline-flex w-full items-center justify-center border border-dark-green/10 bg-white px-5 py-3 text-sm font-semibold text-dark-green transition-all duration-300 hover:border-dark-green/20 hover:bg-neon-green/10"
+              >
+                Request Service
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-16 rounded-[28px] border border-dark-green/10 bg-off-white p-6 md:p-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Add-Ons</p>
+          <h3 className="mt-3 text-2xl font-bold text-text-primary md:text-3xl">Optional Add-On Services</h3>
+          <p className="mt-4 text-base leading-7 text-[#6B7280]">
+            High-value extras for brands that want refined supporting materials.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {optionalAddOnServices.map((service) => (
+            <article
+              key={service.title}
+              className="flex h-full flex-col border border-dark-green/10 bg-white p-5 shadow-[0_12px_28px_rgba(17,17,17,0.04)]"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-dark-green/70">Optional</p>
+              <h4 className="mt-3 text-base font-semibold leading-tight text-text-primary">{service.title}</h4>
+              <p className="mt-3 text-sm leading-7 text-text-secondary">{service.note}</p>
+              <p className="mt-5 text-lg font-bold text-dark-green">{service.price}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const showcaseCards = [
   {
@@ -65,7 +188,7 @@ const showcaseCards = [
       "/BulkGraphics/3.jpg",
       "/BulkGraphics/4.jpg",
       "/BulkGraphics/5.jpeg",
-      "/BulkGraphics/6.jpg",
+        "/BulkGraphics/6.jpeg",
     ],
   },
   {
@@ -112,6 +235,7 @@ export default function BulkGraphicsPage() {
         showcaseTitle="Bulk graphics showcase"
         showcaseDescription="A mixed gallery of previous work samples from print, promotional, and campaign-focused graphic design projects."
         showcaseCards={showcaseCards}
+        afterPricingContent={afterPricingContent}
         pastWorksTitle="Event packs and corporate print samples."
         pastWorksDescription="Request print ready samples for banners, posters, and branded event materials."
         pastWorksLinks={[
