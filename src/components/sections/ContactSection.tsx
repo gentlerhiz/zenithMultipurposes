@@ -50,7 +50,7 @@ export default function ContactSection() {
                         Address
                       </p>
                       <p className="mt-1 text-sm text-white/80">
-                        No 23, Akinyemi Street, Oluyole Estate, Ibadan, Oyo State
+                        No 23, Akinyemi Street, Oluyole Estate, Ibadan, Oyo State.
                       </p>
                     </div>
                   </div>
