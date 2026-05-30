@@ -107,8 +107,6 @@ export default function SocialMediaPage() {
         pricing={pricing}
         whyItMatters="An inactive or poorly managed social media account sends the wrong message. Clients and partners check your socials — and what they find either builds confidence or raises doubt. A well-managed presence builds credibility, keeps your audience engaged, and creates a consistent pipeline of visibility for your business."
         whyZenithMultipurposes="We understand both the creative and strategic sides of social media. We don't just post content — we build a presence that reflects your brand accurately and consistently across every platform."
-        showcaseTitle="Social media showcase"
-        showcaseDescription="A visual sample of the kind of branded content, covers, and campaign assets we build for active social platforms."
         showcaseCards={showcaseCards}
         pastWorksTitle="Social media branding and content samples."
         pastWorksDescription="Request curated examples of social profiles, templates, and YouTube assets tailored to your industry."

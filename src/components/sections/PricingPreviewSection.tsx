@@ -8,13 +8,24 @@ import { useRef } from "react";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 import { services } from "@/lib/pricingData";
 
+const websiteAndAppService = services.find((service) => service.slug === "website-design");
+const filteredServices = [
+  websiteAndAppService
+    ? {
+        ...websiteAndAppService,
+        name: "Website Design and App Development",
+      }
+    : services[0],
+  ...services.filter((service) => service.slug !== "website-design" && service.slug !== "app-development"),
+];
+
 export default function PricingPreviewSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
-  const [selectedService, setSelectedService] = useState(services[0].name);
+  const [selectedService, setSelectedService] = useState(filteredServices[0].name);
 
   const currentService = useMemo(
-    () => services.find((service) => service.name === selectedService) ?? services[0],
+    () => filteredServices.find((service) => service.name === selectedService) ?? filteredServices[0],
     [selectedService]
   );
 
@@ -26,7 +37,7 @@ export default function PricingPreviewSection() {
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-end"
+          className="grid gap-8"
         >
           <div>
             {/* <motion.p variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-dark-green/10 bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-dark-green shadow-[0_12px_30px_rgba(17,17,17,0.04)]">
@@ -40,8 +51,8 @@ export default function PricingPreviewSection() {
               Service Packages & Pricing
             </motion.h2> */}
 
-            <motion.div variants={staggerContainer} className="mt-8 flex flex-wrap gap-3">
-              {services.map((service) => {
+            <motion.div variants={staggerContainer} className="mt-8 flex w-full flex-wrap gap-3">
+              {filteredServices.map((service) => {
                 const isActive = service.name === selectedService;
                 return (
                   <motion.button
@@ -49,7 +60,7 @@ export default function PricingPreviewSection() {
                     type="button"
                     onClick={() => setSelectedService(service.name)}
                     variants={staggerItem}
-                    className={`px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition duration-300 ${
+                    className={`inline-flex whitespace-nowrap px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition duration-300 ${
                       isActive
                         ? "bg-dark-green text-white shadow-[0_16px_36px_rgba(15,36,25,0.18)]"
                         : "border border-black/10 bg-white text-text-secondary hover:border-dark-green/20"
@@ -82,16 +93,7 @@ export default function PricingPreviewSection() {
                     : "border-dark-green/10 bg-[#F7F8F5]"
               }`}
             >
-              <div className="flex items-center justify-between gap-4">
-                <span className="bg-neon-green/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-dark-green">
-                  {tier.name}
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-text-light">
-                  Package
-                </span>
-              </div>
-
-              <h3 className="mt-5 text-lg font-semibold leading-tight text-text-primary">
+              <h3 className="text-lg font-semibold leading-tight text-text-primary">
                 {tier.packageName}
               </h3>
 

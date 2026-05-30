@@ -138,8 +138,6 @@ export default function WebsiteDesignPage() {
         heroImageAlt="Website design workspace"
         deliverables={deliverables}
         pricing={pricing}
-        showcaseTitle="Website design showcase"
-        showcaseDescription="A curated look at website layouts, landing pages, and section compositions built from real projects."
         showcaseCards={showcaseCards}
         afterPricingContent={afterPricingContent}
         whatWeDo="We design and build clean, professional websites that make your business easy to find, easy to trust, and easy to contact. Every site we build is tailored to your business goals — not recycled from a template and handed over."

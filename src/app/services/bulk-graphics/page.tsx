@@ -126,12 +126,10 @@ const afterPricingContent = (
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-dark-green/70">Standalone</p>
+                
                 <h3 className="mt-3 text-lg font-semibold leading-tight text-text-primary">{service.title}</h3>
               </div>
-              <span className="rounded-full bg-neon-green/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-dark-green">
-                Mini
-              </span>
+             
             </div>
 
             <p className="mt-4 text-sm leading-7 text-text-secondary">{service.note}</p>
@@ -232,8 +230,6 @@ export default function BulkGraphicsPage() {
         heroImageAlt="Designing print graphics"
         deliverables={deliverables}
         pricing={pricing}
-        showcaseTitle="Bulk graphics showcase"
-        showcaseDescription="A mixed gallery of previous work samples from print, promotional, and campaign-focused graphic design projects."
         showcaseCards={showcaseCards}
         afterPricingContent={afterPricingContent}
         pastWorksTitle="Event packs and corporate print samples."

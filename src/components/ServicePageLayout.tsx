@@ -25,8 +25,6 @@ interface ServicePageLayoutProps {
   addOns?: string[];
   afterPricingContent?: ReactNode;
 
-  showcaseTitle?: string;
-  showcaseDescription?: string;
   showcaseCards?: Array<{ title: string; description: string; images: string[] }>;
 
   pastWorksTitle: string;
@@ -48,8 +46,6 @@ export default function ServicePageLayout({
   heroImageAlt,
   deliverables,
   pricing,
-  showcaseTitle,
-  showcaseDescription,
   showcaseCards,
   pastWorksTitle,
   pastWorksDescription,
@@ -97,7 +93,7 @@ export default function ServicePageLayout({
 
 
       {/* Past Works */}
-      <section id="past-works" className="bg-white py-20">
+      <section id="past-works" className="bg-white py-6">
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
@@ -139,14 +135,14 @@ export default function ServicePageLayout({
 
       {/* What We Do / Who This Is For */}
       <motion.section
-        className="bg-dark-green py-20 text-white"
+        className="bg-dark-green py-14 text-white md:py-16"
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
       >
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <motion.div variants={fadeLeft} className="py-10 md:py-12">
+          <motion.div variants={fadeLeft} className="py-7 md:py-8">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-neon-green/80">Service Overview</p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">What We Do</h2>
             <p className="mt-6 max-w-4xl text-base leading-7 text-white/75">{whatWeDo}</p>
@@ -154,7 +150,7 @@ export default function ServicePageLayout({
 
           <div className="border-t border-white/10" />
 
-          <motion.div variants={fadeRight} className="py-10 md:py-12">
+          <motion.div variants={fadeRight} className="py-7 md:py-8">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-neon-green/80">Ideal For</p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">Who This Is For</h2>
             <ul className="mt-6 list-disc space-y-4 pl-5">
@@ -169,10 +165,10 @@ export default function ServicePageLayout({
       </motion.section>
 
       {/* Deliverables */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12 md:py-14">
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
           <h2 className="text-3xl font-bold text-text-primary">What you get</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {deliverables.map((item) => (
               <div key={item.title} className="group border border-black/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-dark-green/20 hover:shadow-lg">
                 <div className="flex items-start gap-3">
@@ -191,33 +187,28 @@ export default function ServicePageLayout({
 
       {/* Showcase (carousel) */}
       {showcaseCards && showcaseCards.length > 0 && (
-        <section className="bg-off-white py-12 md:py-20">
+        <section className="bg-off-white py-8 md:py-10">
           <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-            {/* {(showcaseTitle || showcaseDescription) && (
-              <div className="mb-10 max-w-3xl">
-                <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Showcase</p>
-                {showcaseTitle && <h2 className="mt-3 text-3xl font-bold text-text-primary md:text-4xl">{showcaseTitle}</h2>}
-                {showcaseDescription && <p className="mt-4 text-base leading-7 text-[#6B7280]">{showcaseDescription}</p>}
-              </div>
-            )} */}
             <WorkShowcaseSection showcaseCards={showcaseCards} />
           </div>
         </section>
       )}
 
       {/* Pricing */}
-      <section id="pricing" className="bg-off-white py-20">
+      <section id="pricing" className="bg-white py-10 md:py-12">
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center md:mb-10">
+            <div className="mb-4 inline-flex items-center">
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-dark-green">Pricing</p>
+              </div>
             <h2 className="text-3xl font-bold md:text-4xl">Transparent Pricing</h2>
-            <p className="mt-3 text-base text-[#6B7280]">Choose the package that fits your business needs</p>
+            <p className="mt-3 mb-6 pb-6 text-base text-[#6B7280]">Choose the package that fits your business needs</p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {pricing.map((tier, index) => (
               <div key={tier.name} className={`group relative flex flex-col overflow-hidden border ${index === 1 ? "border-dark-green bg-white shadow-2xl lg:-mt-4 lg:scale-105" : "border-black/10 bg-white shadow-lg"}`}>
                 <div className="p-8">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-dark-green/70">{index === 0 ? "Starter" : index === 1 ? "Professional" : "Enterprise"}</p>
-                  <h3 className="mt-3 text-lg font-bold text-text-primary">{tier.name}</h3>
+                  <h3 className="text-lg font-bold text-text-primary">{tier.name}</h3>
                   <p className="mt-4 text-3xl font-bold text-dark-green">{tier.price}</p>
                   <ul className="mt-6 space-y-3">
                     {tier.items.map((it) => (
@@ -239,7 +230,7 @@ export default function ServicePageLayout({
       
 
       {/* Why It Matters */}
-      <motion.section className="bg-linear-to-br from-dark-green via-[#1a3a28] to-dark-green py-20 text-white" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
+      <motion.section className="bg-linear-to-br from-dark-green via-[#1a3a28] to-dark-green py-14 text-white md:py-16" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
           <div className="grid gap-12">
             <motion.div variants={fadeRight}>
@@ -252,7 +243,7 @@ export default function ServicePageLayout({
       </motion.section>
 
       {/* Why Zenith */}
-      <motion.section className="bg-off-white py-16" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
+      <motion.section className="bg-off-white py-12 md:py-14" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
           <div className="grid gap-12">
             <motion.div variants={fadeLeft}>

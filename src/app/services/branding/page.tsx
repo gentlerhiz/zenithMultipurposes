@@ -98,8 +98,6 @@ export default function BrandingPage() {
         heroImageAlt="Branding materials"
         deliverables={deliverables}
         pricing={pricing}
-        showcaseTitle="Branding showcase"
-        showcaseDescription="A curated look at recent branding work, identity assets, and visual rollouts from real projects."
         showcaseCards={showcaseCards}
         pastWorksTitle="Branding samples, profiles, and catalogues."
         pastWorksDescription="Explore real deliverables from identity projects and company documentation builds."
