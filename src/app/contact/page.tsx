@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactInfoSection from "@/components/sections/ContactInfoSection";
+import ContactFormSection from "@/components/sections/ContactFormSection";
 
 export const metadata: Metadata = {
   title: "Contact Us | Zenith Multipurposes",
@@ -70,126 +71,7 @@ export default function ContactPage() {
 
         <ContactInfoSection />
 
-        <section className="bg-[#FAFAFA] py-16">
-          <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-              <form
-                action="mailto:Dzmultipurposes@gmail.com"
-                method="post"
-                encType="text/plain"
-                className="border border-black/10 bg-[#0F2419] p-8 text-white"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#CDFF00]">
-                  Project brief
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
-                  Tell us what you need.
-                </h2>
-                <p className="mt-3 text-sm text-white/70">
-                  Fill the details below and we will respond with a clear scope
-                  and next steps.
-                </p>
-                <div className="mt-6 grid gap-4">
-                  <label className="grid gap-2 text-sm text-white/70">
-                    Full name
-                    <input
-                      name="name"
-                      placeholder="Your name"
-                      className="h-12 border border-white/10 bg-white/5 px-4 text-sm text-white placeholder:text-white/35"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm text-white/70">
-                    Email address
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="you@email.com"
-                      className="h-12 border border-white/10 bg-white/5 px-4 text-sm text-white placeholder:text-white/35"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm text-white/70">
-                    Service interest
-                    <select
-                      name="service"
-                      className="h-12 border border-white/10 bg-white/5 px-4 text-sm text-white"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select a service
-                      </option>
-                      <option value="Branding">Branding and Rebranding</option>
-                      <option value="Social Media">Social Media Management</option>
-                      <option value="Bulk Graphics">Bulk Graphics Design</option>
-                      <option value="AI Automation">AI Automation Setup</option>
-                      <option value="Website">Website Design And App Development</option>
-                    </select>
-                  </label>
-                  <label className="grid gap-2 text-sm text-white/70">
-                    Project summary
-                    <textarea
-                      name="summary"
-                      rows={5}
-                      placeholder="Share timelines, goals, and deliverables needed"
-                      className="border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35"
-                    />
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="mt-6 inline-flex w-full items-center justify-center bg-[#CDFF00] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#0F2419] transition-all hover:bg-[#B8E600]"
-                >
-                  Send brief
-                </button>
-              </form>
-
-              <div className="space-y-6">
-                <div className="border border-black/10 bg-white p-6 shadow-[0_18px_36px_rgba(17,17,17,0.08)]">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#0F2419]">
-                    What happens next
-                  </p>
-                  <ol className="mt-4 space-y-3 text-sm text-[#6B7280]">
-                    <li className="flex gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#CDFF00]/10 text-xs font-semibold text-[#0F2419]">
-                        1
-                      </span>
-                      We review your brief and suggest a tailored package.
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#CDFF00]/10 text-xs font-semibold text-[#0F2419]">
-                        2
-                      </span>
-                      You receive timelines, pricing, and required assets.
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#CDFF00]/10 text-xs font-semibold text-[#0F2419]">
-                        3
-                      </span>
-                      Once approved, we kick off with a clear delivery plan.
-                    </li>
-                  </ol>
-                </div>
-
-                <div className="border border-black/10 bg-[#0F2419] p-6 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-                    Need a quicker response?
-                  </p>
-                  <p className="mt-3 text-lg font-semibold">
-                    Send your brief and we will schedule a call.
-                  </p>
-                  <p className="mt-3 text-sm text-white/70">
-                    We are available Monday to Saturday for consultations.
-                  </p>
-                  <a
-                    href="mailto:Dzmultipurposes@gmail.com"
-                    className="mt-5 inline-flex bg-[#CDFF00] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#0F2419] transition-all hover:bg-[#B8E600]"
-                  >
-                    Email now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactFormSection />
       </main>
       <Footer />
     </div>
