@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error: resendError } = await resend.emails.send({
       from: "Zenith Multipurposes <onboarding@resend.dev>",
-      to: ["Dzmultipurposes@gmail.com"],
+      to: ["dzmultipurposes@gmail.com"],
       replyTo: email,
       subject: `Quote request from ${full_name}${service_needed ? ` — ${service_needed}` : ""}`,
       html: buildEmailHtml({
